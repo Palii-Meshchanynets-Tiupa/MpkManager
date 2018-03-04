@@ -1,0 +1,18 @@
+.ui-inputgroup {
+  margin: 20px 30px;
+}
+
+.background {
+  /*background-color: #335682;*/
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.container {
+  height: 500px;
+}
+
+.text {
+  margin: 20px;
+}

@@ -1,0 +1,33 @@
+<div class="container" fxLayoutAlign="center center">
+  <p-card class="background">
+    <form #loginForm="ngForm" (submit)="login()">
+      <span class="text">Login Form</span>
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+        <input type="text"
+               pInputText
+               size="25"
+               name="login"
+               placeholder="Login"
+               required
+               [(ngModel)]="credentials.username"/>
+      </div>
+
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+        <input type="password"
+               pPassword
+               name="password"
+               [feedback]="false"
+               size="25"
+               placeholder="Password"
+               required
+               [(ngModel)]="credentials.password"/>
+      </div>
+      <div class="ui-inputgroup" fxLayoutAlign="end center">
+        <p-button type="submit" label="Submit"></p-button>
+      </div>
+    </form>
+  </p-card>
+</div>
+
