@@ -1,0 +1,15 @@
+<div fxLayoutAlign="center center">
+  <mat-card fxFlex="500px">
+    <mat-card-content fxLayout="column">
+      <div class="menu-header">
+        <span>Menu</span>
+      </div>
+      <button fxFlex="auto"
+              mat-raised-button
+              color="accent"
+              *ngFor="let item of ['Lorem ipsum', 'Dolor sit amet', 'Consectetur adipiscing elit', 'Sed do eiusmod', 'Tempor incididunt']">
+        {{item}}
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

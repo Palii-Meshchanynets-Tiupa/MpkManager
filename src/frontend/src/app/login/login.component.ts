@@ -25,9 +25,6 @@ export class LoginComponent {
     this.authService.authenticate(this.credentials)
       .then(() => {
         this.router.navigateByUrl('/');
-      })
-      .catch(reason => {
-        console.log('error!', reason);
       });
   }
 

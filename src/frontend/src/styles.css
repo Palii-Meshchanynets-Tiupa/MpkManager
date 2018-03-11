@@ -1,13 +1,7 @@
-html, body {
-  margin: 0;
-  height: 100%;
-}
-
-body {
-  background-color: #15294e;
-}
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 body {
   margin: 0 !important;
   padding: 0 !important;
+  background-color: #666666;
 }

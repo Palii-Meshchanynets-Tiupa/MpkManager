@@ -1,41 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app-root/app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AppRouting } from './app.routing';
 import { AuthService } from './service/auth.service';
-import {FormsModule} from '@angular/forms';
-import { InputTextModule, PasswordModule, SplitButtonModule, ToolbarModule } from 'primeng/primeng';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ButtonModule } from 'primeng/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CardModule } from 'primeng/card';
+import { AppMaterialModule } from './app.material.module';
+import { MenuComponent } from './menu/menu.component';
+import { CustomInterceptor } from './service/custom.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRouting,
     FlexLayoutModule,
-
-    ToolbarModule,
     BrowserAnimationsModule,
-    ButtonModule,
-    InputTextModule,
-    CardModule,
-    PasswordModule,
-
+    AppMaterialModule,
     HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

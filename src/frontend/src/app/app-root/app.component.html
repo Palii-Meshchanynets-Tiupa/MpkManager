@@ -1,13 +1,11 @@
-<p-toolbar>
-  <div class="ui-toolbar-group-left">
-    <span class="logo">MPK Manager</span>
-  </div>
+<mat-toolbar fxLayoutAlign="space-between center" color="primary">
+  <span fxFlex>MPK Manager</span>
 
-  <div class="ui-toolbar-group-right">
-    <button pButton type="button" icon="fa-user"></button>
-  </div>
-</p-toolbar>
-<div>
-  <router-outlet></router-outlet>
-</div>
+  <span fxFlex="auto"></span>
+
+  <span>
+    <button *ngIf="isAuthenticated()" mat-raised-button type="button" (click)="logout()">Logout</button>
+  </span>
+</mat-toolbar>
+<router-outlet></router-outlet>
 
