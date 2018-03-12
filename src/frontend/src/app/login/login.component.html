@@ -22,9 +22,11 @@
                  required
                  [(ngModel)]="credentials.password"/>
         </mat-form-field>
+
       </mat-card-content>
       <mat-card-actions>
-        <div fxLayoutAlign="end center">
+        <div fxLayoutAlign="space-between center">
+          <mat-error>{{ error }}</mat-error>
           <button mat-raised-button color="primary" type="submit">Submit</button>
         </div>
       </mat-card-actions>

@@ -1,7 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from '../service/auth.service';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AlertDialogComponent } from '../utils/alert-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +15,7 @@ export class LoginComponent {
   @ViewChild('loginForm') private loginForm: NgForm;
 
   public credentials = { username: '', password: '' };
+  public error = '';
 
   constructor(protected authService: AuthService, protected router: Router) {
   }
@@ -25,6 +28,9 @@ export class LoginComponent {
     this.authService.authenticate(this.credentials)
       .then(() => {
         this.router.navigateByUrl('/');
+      })
+      .catch(reason => {
+        this.error = 'Bad username or password';
       });
   }
 

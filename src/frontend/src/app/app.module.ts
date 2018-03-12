@@ -11,12 +11,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppMaterialModule } from './app.material.module';
 import { MenuComponent } from './menu/menu.component';
 import { CustomInterceptor } from './service/custom.interceptor';
+import { AlertDialogComponent } from './utils/alert-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,9 @@ import { CustomInterceptor } from './service/custom.interceptor';
     BrowserAnimationsModule,
     AppMaterialModule,
     HttpClientModule
+  ],
+  entryComponents: [
+    AlertDialogComponent
   ],
   providers: [
     AuthService,
