@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public items = [
+    { name: 'Employees', link: '/emp' },
+    { name: 'Dolor sit amet', link: '/' },
+    { name: 'Consectetur adipiscing elit', link: '/' },
+    { name: 'Sed do eiusmod', link: '/' },
+    { name: 'Tempor incididunt', link: '/' },
+  ];
+
+  constructor(protected router: Router) { }
 
   ngOnInit() {
+  }
+
+  goTo(link: string) {
+    this.router.navigateByUrl(link);
   }
 
 }

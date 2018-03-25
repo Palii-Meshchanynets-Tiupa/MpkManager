@@ -7,8 +7,9 @@
       <button fxFlex="auto"
               mat-raised-button
               color="accent"
-              *ngFor="let item of ['Lorem ipsum', 'Dolor sit amet', 'Consectetur adipiscing elit', 'Sed do eiusmod', 'Tempor incididunt']">
-        {{item}}
+              (click)="goTo(item.link)"
+              *ngFor="let item of items">
+        {{ item.name }}
       </button>
     </mat-card-content>
   </mat-card>

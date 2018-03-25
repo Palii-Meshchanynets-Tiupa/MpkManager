@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppConstants } from '../app.constants';
+import { AppConstants } from '../../app.constants';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 
@@ -37,10 +37,11 @@ export class AuthService {
     return this.http.get(`${AppConstants.PRINCIPLE_URL}`, { headers: this.jsonHeaders })
       .toPromise()
       .then(value => {
-        this.principal = value['principal'] as Principal;
-      })
-      .catch(() => {
-        this.router.navigateByUrl('/login');
+        if (value != null) {
+          this.principal = value as Principal;
+        } else {
+          this.router.navigateByUrl('/login');
+        }
       });
   }
 

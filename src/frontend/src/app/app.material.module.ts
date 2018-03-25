@@ -20,6 +20,7 @@ import {
   MatRadioModule,
   MatProgressSpinnerModule,
   MatTabsModule,
+  MatTableModule,
   MatListModule
 } from '@angular/material';
 
@@ -45,6 +46,7 @@ import {
     MatRadioModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatTableModule,
     MatListModule
   ],
   exports: [
@@ -68,6 +70,7 @@ import {
     MatRadioModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatTableModule,
     MatListModule
   ],
 })

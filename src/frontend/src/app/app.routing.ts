@@ -6,12 +6,13 @@ import { MenuComponent } from './menu/menu.component';
 const routes: Routes = [
   { path: '', component: MenuComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'emp', loadChildren: './modules/employee/employee.module#EmployeeModule'},
   { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { enableTracing: false })
   ],
   exports: [
     RouterModule

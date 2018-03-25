@@ -52,6 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(new Http403ForbiddenEntryPoint())
             .and()
                 .authorizeRequests()
+                .antMatchers("/api/authentication").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .formLogin()
