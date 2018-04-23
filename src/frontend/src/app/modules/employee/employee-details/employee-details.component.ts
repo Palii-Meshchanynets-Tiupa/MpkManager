@@ -15,7 +15,7 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseMixin)) implements OnInit {
 
-  constructor(public service: EmployeeService, protected router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(public service: EmployeeService, public router: Router, public activatedRoute: ActivatedRoute) {
     super();
   }
 
