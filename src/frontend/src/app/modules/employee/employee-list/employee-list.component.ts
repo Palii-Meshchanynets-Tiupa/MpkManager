@@ -26,10 +26,11 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(BaseMixi
       {columnDef: 'enabled', header: 'Enabled', cell: TextCellDefinition},
       {
         columnDef: 'actions',
-        width: 40,
+        width: 70,
         cell: new ActionsCellDefinition(
           [
             {icon: 'mode_edit', color: 'accent', clickHandler: (entity) => this.router.navigate([entity.id], {relativeTo: this.route})},
+            {icon: 'delete', color: 'primary', clickHandler: (entity) => this.service.delete(entity)}
           ]
         )
       },

@@ -23,7 +23,8 @@ export interface CellDef {
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.css']
+  styleUrls: ['./data-table.component.css'],
+  exportAs: 'data-table'
 })
 export class DataTableComponent implements OnInit {
 
