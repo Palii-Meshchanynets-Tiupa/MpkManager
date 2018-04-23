@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString(exclude = "password", callSuper = true)
 public class Employee extends AbstractUniqueEntity {
 
     @NotNull

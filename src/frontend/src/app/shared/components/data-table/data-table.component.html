@@ -1,10 +1,10 @@
-<mat-card [ngStyle]="{ 'padding-top': '10px' }">
+<mat-card>
   <mat-table [dataSource]="dataSource">
 
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-      <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
-      <mat-cell *matCellDef="let entity">
-        <app-cell [prop]="entity[column.columnDef]" [cellDef]="column.cell"></app-cell>
+      <mat-header-cell *matHeaderCellDef [style.max-width.px]="column.width">{{ column.header }}</mat-header-cell>
+      <mat-cell *matCellDef="let entity" [style.max-width.px]="column.width">
+        <app-cell [props]="column.cell.handler(entity, column, {})" [cellType]="column.cell.type"></app-cell>
       </mat-cell>
     </ng-container>
 

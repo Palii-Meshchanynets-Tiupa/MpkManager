@@ -1,5 +1,5 @@
 import { Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
-import { CellDef } from './data-table.component';
+import { CellDataHolder } from './data-table.component';
 
 @Component({
   selector: 'app-cell',
@@ -10,17 +10,17 @@ export class CellComponent implements OnInit {
 
   @ViewChild('cellTemplate', { read: ViewContainerRef }) cellContainerRef;
 
-  @Input() cellDef: Type<CellDef>;
-  @Input() prop: any;
+  @Input() cellType: Type<CellDataHolder>;
+  @Input() props: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(this.cellDef);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(this.cellType);
 
     const component = this.cellContainerRef.createComponent(factory);
-    (<CellDef>component.instance).prop = this.prop;
+    Object.assign(<CellDataHolder>component.instance, this.props);
   }
 
 }

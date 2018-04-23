@@ -1,10 +1,8 @@
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { Entity } from '../../entity';
-import 'rxjs/add/observable/of';
 import { CrudEntityService } from '../../service/crud-entity.service';
 import { Page } from '../../page';
-import 'rxjs/add/observable/fromPromise';
 
 export class EntityDataSource extends DataSource<Entity> {
 

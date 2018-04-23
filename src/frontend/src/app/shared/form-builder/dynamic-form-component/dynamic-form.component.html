@@ -1,0 +1,12 @@
+<div>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+
+    <div *ngFor="let field of fields">
+      <app-field [field]="field" [form]="form"></app-field>
+    </div>
+
+    <div fxLayout="row-reverse">
+      <button type="submit" color="primary" mat-raised-button [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+</div>

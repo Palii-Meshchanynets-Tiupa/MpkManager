@@ -21,6 +21,14 @@
       "rxjs",
       "rxjs/Rx"
     ],
+    "rxjs-add": {
+      "options": [{
+        "allowElsewhere": false,
+        "allowUnused": false,
+        "file": "./src/rxjs-imports.ts"
+      }],
+      "severity": "error"
+    },
     "import-spacing": true,
     "indent": [
       true,
@@ -30,7 +38,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      160
     ],
     "member-access": false,
     "member-ordering": [
@@ -66,7 +74,7 @@
     ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
-    "no-shadowed-variable": true,
+    "no-shadowed-variable": false,
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,

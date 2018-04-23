@@ -2,9 +2,12 @@ package com.wspa.mpkmanager.rest;
 
 import com.wspa.mpkmanager.model.Employee;
 import com.wspa.mpkmanager.repo.EmployeeRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -12,11 +15,15 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/api/employee")
 public class EmployeeController {
 
-	private EmployeeRepository repository;
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-	public EmployeeController(EmployeeRepository repository) {
+	private EmployeeRepository repository;
+    private PasswordEncoder passwordEncoder;
+
+	public EmployeeController(EmployeeRepository repository, PasswordEncoder passwordEncoder) {
 		this.repository = repository;
-	}
+        this.passwordEncoder = passwordEncoder;
+    }
 
 	@GetMapping
 	public ResponseEntity<Page<Employee>> getPage(Pageable pageable) {
@@ -43,7 +50,14 @@ public class EmployeeController {
 
 	@PatchMapping
 	public ResponseEntity<Employee> update(@RequestBody Employee employee) {
-
+		if (employee.getPassword() == null) {
+			Employee persisted = this.repository.getOne(employee.getId());
+			if (persisted != null) {
+				employee.setPassword(persisted.getPassword());
+			}
+		} else {
+		    employee.setPassword(passwordEncoder.encode(employee.getPassword()));
+        }
 		Employee entity = repository.save(employee);
 		return ResponseEntity.ok(entity);
 	}

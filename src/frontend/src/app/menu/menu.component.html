@@ -7,7 +7,7 @@
       <button fxFlex="auto"
               mat-raised-button
               color="accent"
-              (click)="goTo(item.link)"
+              [routerLink]="item.link"
               *ngFor="let item of items">
         {{ item.name }}
       </button>

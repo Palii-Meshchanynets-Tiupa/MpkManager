@@ -6,12 +6,12 @@ export abstract class CrudEntityService<T extends Entity> {
 
   public jsonHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(protected url: string, protected http: HttpClient) { }
+  protected constructor(protected url: string, protected http: HttpClient) { }
 
-  get(id: number): Promise<Page<T>> {
+  get(id: number): Promise<T> {
     return this.http.get(`${this.url}/${id}`, { headers: this.jsonHeaders })
       .toPromise()
-      .then(res => res as Page<T>);
+      .then(res => res as T);
   }
 
   getPage(pageable: Pageable): Promise<Page<T>> {

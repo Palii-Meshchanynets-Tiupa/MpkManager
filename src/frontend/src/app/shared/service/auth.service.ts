@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../app.constants';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/Subject';
 
 interface Principal {
   enabled: boolean;

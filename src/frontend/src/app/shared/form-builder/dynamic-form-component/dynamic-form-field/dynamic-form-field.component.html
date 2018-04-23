@@ -1,0 +1,37 @@
+<div fxFlex fxLayout="row" [formGroup]="form">
+  <ng-container [ngSwitch]="field.controlType">
+
+    <ng-container *ngSwitchCase="'textbox'">
+      <mat-form-field fxFlex *ngIf="field.entity.id == null || !field.createOnly">
+        <input matInput
+               [placeholder]="field.label"
+               [formControlName]="field.key"
+               [id]="field.key"
+               [type]="field.type">
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'textarea'">
+      <mat-form-field fxFlex *ngIf="field.entity.id == null || !field.createOnly">
+        <textarea matInput
+                  [placeholder]="field.label"
+                  [formControlName]="field.key"
+                  [id]="field.key">
+        </textarea>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'dropdown'">
+      <mat-form-field fxFlex *ngIf="field.entity.id == null || !field.createOnly">
+        <mat-select [placeholder]="field.label"
+                    [formControlName]="field.key"
+                    [id]="field.key">
+          <mat-option *ngFor="let opt of field.options" [value]="opt.value">{{opt.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+
+  </ng-container>
+
+  <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
+</div>

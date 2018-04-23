@@ -1,0 +1,13 @@
+<mat-card fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex>
+    <button *ngFor="let item of getLeftItems()" mat-icon-button (click)="item.evenHandler()">
+      <mat-icon>{{ item.icon }}</mat-icon>
+    </button>
+    <ng-content></ng-content>
+  </div>
+  <div fxFlex="nogrow">
+    <button *ngFor="let item of getRightItems()" mat-icon-button (click)="item.evenHandler()">
+      <mat-icon>{{ item.icon }}</mat-icon>
+    </button>
+  </div>
+</mat-card>

@@ -4,14 +4,20 @@ import { CrudEntityService } from '../../service/crud-entity.service';
 import { Entity } from '../../entity';
 import { DataSource } from '@angular/cdk/collections';
 
-export interface ColumnDef {
-  columnDef: string,
-  header: string,
-  cell: Type<CellDef>
+export interface CellDataHolder {
+  [key: string]: any;
 }
 
-export class CellDef {
-  public prop: any;
+export interface ColumnDef {
+  columnDef: string;
+  header?: string;
+  width?: number; // px
+  cell: CellDef;
+}
+
+export interface CellDef {
+  type: Type<CellDataHolder>;
+  handler: (entity: any, column: ColumnDef, obj: any) => any;
 }
 
 @Component({
@@ -32,7 +38,7 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new EntityDataSource(this.service);
-    this.columnsToDisplay = this.columns.map(x => x.columnDef)
+    this.columnsToDisplay = this.columns.map(x => x.columnDef);
   }
 
 }
