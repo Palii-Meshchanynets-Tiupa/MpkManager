@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Entity } from '../entity';
 import { Page, Pageable } from '../page';
+import {Observable} from 'rxjs/Observable';
 
 export abstract class CrudEntityService<T extends Entity> {
 
@@ -14,10 +15,9 @@ export abstract class CrudEntityService<T extends Entity> {
       .then(res => res as T);
   }
 
-  getPage(pageable: Pageable): Promise<Page<T>> {
+  getPage(pageable: Pageable): Observable<Page<T>> {
     return this.http.get(`${this.url}?page=${pageable.page}&size=${pageable.size}`, { headers: this.jsonHeaders })
-      .toPromise()
-      .then(res => res as Page<T>);
+      .map(res => res as Page<T>);
   }
 
   create(entity: T): Promise<T> {
@@ -32,8 +32,8 @@ export abstract class CrudEntityService<T extends Entity> {
       .then(res => res as T);
   }
 
-  delete(entity: T): void {
-    this.http.delete(`${this.url}/${entity.id}`, { headers: this.jsonHeaders })
+  delete(entity: T): Promise<{}> {
+    return this.http.delete(`${this.url}/${entity.id}`, { headers: this.jsonHeaders })
       .toPromise();
   }
 

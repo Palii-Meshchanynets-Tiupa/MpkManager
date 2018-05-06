@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-table [dataSource]="dataSource">
+  <mat-table [dataSource]="dataSource" [trackBy]="trackById">
 
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
       <mat-header-cell *matHeaderCellDef [style.max-width.px]="column.width">{{ column.header }}</mat-header-cell>

@@ -30,11 +30,3 @@ export class PageHeaderComponent implements OnInit {
     return this.items.filter(item => item.position === 'right');
   }
 }
-
-export function backItem(router: Router, activatedRoute: ActivatedRoute): HeaderItem {
-  return {position: 'left', icon: 'arrow_back', evenHandler: () => router.navigate(['../'], {relativeTo: activatedRoute})};
-}
-
-export function addItem(router: Router, activatedRoute: ActivatedRoute): HeaderItem {
-  return {position: 'right', icon: 'add', evenHandler: () => router.navigate(['./', ''], {relativeTo: activatedRoute})};
-}

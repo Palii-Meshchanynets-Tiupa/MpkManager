@@ -37,7 +37,7 @@ public class EmployeeController {
 
 	@PostMapping
 	public ResponseEntity<Employee> create(@RequestBody Employee employee) {
-
+		employee.setPassword(passwordEncoder.encode(employee.getPassword()));
 		Employee entity = repository.save(employee);
 
 		return ResponseEntity

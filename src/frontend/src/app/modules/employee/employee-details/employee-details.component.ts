@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HasHeaderItems} from '../../../shared/mixins/has-header-items';
 import {BaseMixin} from '../../../shared/mixins/base.mixin';
-import {backItem} from '../../../shared/components/page-header/page-header.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DropdownField} from '../../../shared/form-builder/fields/dropdown-field';
 import {TextboxField} from '../../../shared/form-builder/fields/textbox-field';
@@ -23,7 +22,7 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
     this.entity = this.activatedRoute.snapshot.data.entity;
 
     this.headerItems = [
-      backItem(this.router, this.activatedRoute)
+      this.backItem(this.router, this.activatedRoute)
     ];
 
     this.fields = [
@@ -37,7 +36,7 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
 
       new TextboxField({
         entity: this.entity,
-        createOnly: true,
+        show: this.entity.id == null,
         key: 'password',
         label: 'Password',
         type: 'password',
@@ -49,7 +48,7 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
         key: 'enabled',
         label: 'Enabled',
         options: [
-          {value: true, viewValue: 'enabled'},
+          {value: true, viewValue: 'enabled', selected: true},
           {value: false, viewValue: 'disabled'}
         ],
         order: 3

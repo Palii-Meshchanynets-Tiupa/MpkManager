@@ -33,13 +33,22 @@ export class DataTableComponent implements OnInit {
 
   columnsToDisplay: Array<string>;
 
-  dataSource: DataSource<Entity>;
+  dataSource: EntityDataSource;
 
   constructor() { }
 
   ngOnInit() {
     this.dataSource = new EntityDataSource(this.service);
+    this.dataSource.loadEntities({ page: 0, size: 5});
     this.columnsToDisplay = this.columns.map(x => x.columnDef);
+  }
+
+  refresh() {
+    this.dataSource.refresh();
+  }
+
+  trackById(index: number, item: Entity): any {
+    return item.id;
   }
 
 }
