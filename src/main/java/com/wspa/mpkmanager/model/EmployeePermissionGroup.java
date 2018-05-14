@@ -1,8 +1,10 @@
 package com.wspa.mpkmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,11 +15,13 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class EmployeePermissionGroup extends AbstractUniqueEntity {
 
     @NotNull
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonManagedReference
     private Employee employee;
 
     @NotNull

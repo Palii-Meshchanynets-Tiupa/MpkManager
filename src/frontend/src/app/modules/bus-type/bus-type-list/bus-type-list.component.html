@@ -1,0 +1,10 @@
+<app-page-header [items]="headerItems">
+  {{ "Bus types" }}
+</app-page-header>
+
+<mat-card>
+  <app-data-table #table="data-table"
+                  [columns]="columns"
+                  [service]="service">
+  </app-data-table>
+</mat-card>

@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -15,5 +16,6 @@ public abstract class AbstractUniqueEntity extends AbstractEntity {
 
     @Getter
     @NotNull
+    @Column(columnDefinition = "uuid")
     private UUID uuid = UUID.randomUUID();
 }

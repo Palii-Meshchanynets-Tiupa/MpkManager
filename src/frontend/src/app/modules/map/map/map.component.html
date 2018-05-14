@@ -1,0 +1,15 @@
+<aol-map fxFlex="grow" [width]="'100%'" [height]="'93vh'" [loadTilesWhileAnimating]="true">
+
+  <aol-interaction-default></aol-interaction-default>
+  <!--<aol-control-defaults></aol-control-defaults>-->
+  <!--<aol-control-fullscreen></aol-control-fullscreen>-->
+
+  <aol-view [zoom]="14">
+    <aol-coordinate [x]="22.5677" [y]="51.2461" [srid]="'EPSG:4326'"></aol-coordinate>
+  </aol-view>
+
+  <aol-layer-tile>
+    <aol-source-osm></aol-source-osm>
+  </aol-layer-tile>
+
+</aol-map>

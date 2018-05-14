@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, Type } from '@angular/core';
 import { EntityDataSource } from './entity-data-source';
-import { CrudEntityService } from '../../service/crud-entity.service';
-import { Entity } from '../../entity';
-import { DataSource } from '@angular/cdk/collections';
+import { CrudEntityService } from '../service/crud-entity.service';
+import { Entity } from '../entity';
 
 export interface CellDataHolder {
   [key: string]: any;
@@ -11,7 +10,7 @@ export interface CellDataHolder {
 export interface ColumnDef {
   columnDef: string;
   header?: string;
-  width?: number; // px
+  width?: string;
   cell: CellDef;
 }
 

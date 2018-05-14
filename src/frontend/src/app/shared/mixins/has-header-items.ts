@@ -1,4 +1,4 @@
-import {HeaderItem} from '../components/page-header/page-header.component';
+import {HeaderItem} from '../page-header/page-header.component';
 import {Constructor} from './base.mixin';
 import {ActivatedRoute, Router} from '@angular/router';
 

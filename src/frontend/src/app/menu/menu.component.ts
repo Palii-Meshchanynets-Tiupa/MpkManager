@@ -10,11 +10,11 @@ export class MenuComponent implements OnInit {
 
   public items = [
     { name: 'Employees', link: '/emp' },
-    { name: 'Routes', link: '/' },
-    { name: 'Stops', link: '/' },
-    { name: 'Driving schedule', link: '/' },
-    { name: 'Cars', link: '/' },
-    { name: 'Drivers', link: '/' },
+    { name: 'Map', link: '/map' },
+    { name: 'Buses', link: '/bus' },
+    { name: 'Bus Types', link: '/bus-type' },
+    { name: 'Stop Types', link: '/bus-stop-type' },
+    // { name: 'Drivers', link: '/driver' },
   ];
 
   constructor(protected router: Router) { }

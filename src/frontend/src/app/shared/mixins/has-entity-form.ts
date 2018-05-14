@@ -1,6 +1,6 @@
 import {Constructor} from './base.mixin';
 import {Entity} from '../entity';
-import {FieldBase} from '../form-builder/field-base';
+import {FieldBase} from '../dynamic-form/field-base';
 import {CrudEntityService} from '../service/crud-entity.service';
 import {ActivatedRoute, Router} from '@angular/router';
 

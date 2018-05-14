@@ -13,7 +13,6 @@ const routes: Routes = [
       entity: EmployeeDetailsResolver
     }
   },
-  // { path: '', component: EmployeeDetailsComponent, resolve: { entity: EmployeeDetailsResolver } },
 ];
 
 @NgModule({

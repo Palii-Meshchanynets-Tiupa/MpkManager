@@ -1,0 +1,13 @@
+<mat-table [dataSource]="dataSource" [trackBy]="trackById">
+
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+    <mat-header-cell *matHeaderCellDef [style.max-width]="column.width">{{ column.header }}</mat-header-cell>
+    <mat-cell *matCellDef="let entity" [style.max-width]="column.width">
+      <app-cell [props]="column.cell.handler(entity, column, {})" [cellType]="column.cell.type"></app-cell>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+
+</mat-table>

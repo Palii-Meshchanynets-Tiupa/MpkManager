@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HasHeaderItems} from '../../../shared/mixins/has-header-items';
 import {BaseMixin} from '../../../shared/mixins/base.mixin';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DropdownField} from '../../../shared/form-builder/fields/dropdown-field';
-import {TextboxField} from '../../../shared/form-builder/fields/textbox-field';
+import {DropdownField} from '../../../shared/dynamic-form/fields/dropdown-field';
+import {TextboxField} from '../../../shared/dynamic-form/fields/textbox-field';
 import {HasEntityForm} from '../../../shared/mixins/has-entity-form';
 import {EmployeeService} from '../employee.service';
 
@@ -31,7 +31,27 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
         key: 'username',
         label: 'Username',
         required: true,
-        order: 1
+      }),
+
+      new TextboxField({
+        entity: this.entity,
+        key: 'firstName',
+        label: 'First Name',
+        required: true,
+      }),
+
+      new TextboxField({
+        entity: this.entity,
+        key: 'lastName',
+        label: 'Last Name',
+        required: true,
+      }),
+
+      new TextboxField({
+        entity: this.entity,
+        key: 'pesel',
+        label: 'Pesel',
+        required: true,
       }),
 
       new TextboxField({
@@ -40,7 +60,6 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
         key: 'password',
         label: 'Password',
         type: 'password',
-        order: 2
       }),
 
       new DropdownField({
@@ -51,7 +70,6 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(BaseM
           {value: true, viewValue: 'enabled', selected: true},
           {value: false, viewValue: 'disabled'}
         ],
-        order: 3
       })
 
     ];

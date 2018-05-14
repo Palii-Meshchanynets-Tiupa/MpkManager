@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class PermissionGroup extends AbstractDictionaryEntity {
 
     @JsonBackReference

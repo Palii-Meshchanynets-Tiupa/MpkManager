@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Entity} from '../../entity';
 
 export interface HeaderItem {
   position: 'left' | 'right' ;

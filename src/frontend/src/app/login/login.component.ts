@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../shared/service/auth.service';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
-import { AlertDialogComponent } from '../shared/dialog/alert-dialog.component';
+import {Component, ViewChild} from '@angular/core';
+import {AuthService} from '../shared/service/auth.service';
+import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
