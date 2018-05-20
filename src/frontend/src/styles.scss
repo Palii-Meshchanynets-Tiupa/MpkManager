@@ -3,9 +3,13 @@
 body {
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #666666;
-  background-image: url("images/wallpapers.jpg") !important;
+
+  background: url("images/wallpapers.jpg") no-repeat center center fixed !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-color: #666666;
 }
 
 .mat-card {
