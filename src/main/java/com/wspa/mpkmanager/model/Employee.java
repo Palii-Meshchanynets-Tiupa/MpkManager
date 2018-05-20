@@ -1,6 +1,6 @@
 package com.wspa.mpkmanager.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,7 +44,7 @@ public class Employee extends AbstractUniqueEntity {
 
     private boolean enabled = true;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<EmployeePermissionGroup> permissionGroups;
 }

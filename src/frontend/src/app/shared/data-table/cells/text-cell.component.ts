@@ -8,11 +8,12 @@ import {CellDataHolder, CellDef} from '../data-table.component';
   `,
   styles: [``]
 })
-export class TextCellComponent implements CellDataHolder {
+export class TextCellComponent extends CellDataHolder {
+
+  public value: string;
 
   constructor() {
   }
-
 }
 
 export const TextCellDefinition: CellDef = {

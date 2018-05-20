@@ -1,4 +1,4 @@
-import {Constructor} from './base.mixin';
+import {Constructor} from './mixin';
 import {Entity} from '../entity';
 import {FieldBase} from '../dynamic-form/field-base';
 import {CrudEntityService} from '../service/crud-entity.service';

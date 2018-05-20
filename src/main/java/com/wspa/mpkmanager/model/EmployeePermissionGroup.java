@@ -1,5 +1,6 @@
 package com.wspa.mpkmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class EmployeePermissionGroup extends AbstractUniqueEntity {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    @JsonManagedReference
+    @JsonBackReference
     private Employee employee;
 
     @NotNull

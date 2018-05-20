@@ -16,11 +16,13 @@ import {CellDataHolder, CellDef, ColumnDef} from '../data-table.component';
 
   `]
 })
-export class ActionsCellComponent implements CellDataHolder {
+export class ActionsCellComponent extends CellDataHolder {
+
+  actionsDefinitions: Array<ActionsDefinition>;
+  entity: any;
 
   constructor() {
   }
-
 }
 
 export interface ActionsDefinition {

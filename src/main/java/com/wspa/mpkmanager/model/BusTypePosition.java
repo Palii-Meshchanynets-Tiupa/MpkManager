@@ -1,5 +1,6 @@
 package com.wspa.mpkmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class BusTypePosition extends AbstractUniqueEntity  {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "bus_id")
-    @JsonManagedReference
+    @JsonBackReference
     private Bus bus;
 
     @NotNull

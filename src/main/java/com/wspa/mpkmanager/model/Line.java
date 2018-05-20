@@ -1,6 +1,7 @@
 package com.wspa.mpkmanager.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +25,7 @@ public class Line extends AbstractUniqueEntity {
     @Size(max = 64)
     private String name;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "line", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<LineSegment> lineSegments;
 }

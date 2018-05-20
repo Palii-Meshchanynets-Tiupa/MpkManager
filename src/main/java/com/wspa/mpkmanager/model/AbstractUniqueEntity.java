@@ -16,6 +16,6 @@ public abstract class AbstractUniqueEntity extends AbstractEntity {
 
     @Getter
     @NotNull
-    @Column(columnDefinition = "uuid")
+    @Column(columnDefinition = "uuid", unique = true)
     private UUID uuid = UUID.randomUUID();
 }

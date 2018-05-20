@@ -1,17 +1,20 @@
 import {HeaderItem} from '../page-header/page-header.component';
-import {Constructor} from './base.mixin';
+import {Constructor} from './mixin';
 import {ActivatedRoute, Router} from '@angular/router';
 
 export function HasHeaderItems<T extends Constructor>(Base: T) {
   return class extends Base {
     headerItems: Array<HeaderItem>;
 
-    backItem(router: Router, activatedRoute: ActivatedRoute): HeaderItem {
-      return {position: 'left', icon: 'arrow_back', evenHandler: () => router.navigate(['../'], {relativeTo: activatedRoute})};
+    router: Router;
+    route: ActivatedRoute;
+
+    get backItem(): HeaderItem {
+      return {position: 'left', icon: 'arrow_back', evenHandler: () => this.router.navigate(['../'], {relativeTo: this.route})};
     }
 
-    addItem(router: Router, activatedRoute: ActivatedRoute): HeaderItem {
-      return {position: 'right', icon: 'add', evenHandler: () => router.navigate(['./', ''], {relativeTo: activatedRoute})};
+    get addItem(): HeaderItem {
+      return {position: 'right', icon: 'add', evenHandler: () => this.router.navigate(['./', ''], {relativeTo: this.route})};
     }
 
   };

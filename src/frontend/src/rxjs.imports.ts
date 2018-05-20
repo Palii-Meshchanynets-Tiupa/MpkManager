@@ -18,6 +18,7 @@ import 'rxjs/add/operator/merge';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/takeUntil';
+import 'rxjs/add/operator/takeWhile';
 import 'rxjs/add/operator/toArray';
 import 'rxjs/ReplaySubject';
 import 'rxjs/Observable';

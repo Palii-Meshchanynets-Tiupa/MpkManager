@@ -23,7 +23,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   submit() {
-    this.onSubmit.emit(Object.assign(this.entity, this.form.value));
+    this.onSubmit.emit(Object.assign(this.entity || {}, this.form.value));
   }
 
   toFormGroup(fields: FieldBase<any>[]) {

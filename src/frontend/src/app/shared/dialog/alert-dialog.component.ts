@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertDialogComponent implements OnInit {
 
-  private text: string;
+  public text: string;
 
   constructor() { }
 

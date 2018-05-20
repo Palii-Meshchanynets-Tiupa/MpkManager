@@ -1,15 +1,15 @@
 package com.wspa.mpkmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -34,8 +34,7 @@ public class Bus extends AbstractUniqueEntity {
     @Size(max = 4)
     private String sideNumber;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "bus_type_id")
-    private BusType busType;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<BusTypePosition> busTypes;
 }

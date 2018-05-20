@@ -3,8 +3,7 @@ import { EntityDataSource } from './entity-data-source';
 import { CrudEntityService } from '../service/crud-entity.service';
 import { Entity } from '../entity';
 
-export interface CellDataHolder {
-  [key: string]: any;
+export class CellDataHolder {
 }
 
 export interface ColumnDef {

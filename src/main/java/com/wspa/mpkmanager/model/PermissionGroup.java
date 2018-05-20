@@ -1,6 +1,6 @@
 package com.wspa.mpkmanager.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.Set;
 @ToString(callSuper = true)
 public class PermissionGroup extends AbstractDictionaryEntity {
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "permissionGroup", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<PermissionGroupPosition> permissions;
 }
