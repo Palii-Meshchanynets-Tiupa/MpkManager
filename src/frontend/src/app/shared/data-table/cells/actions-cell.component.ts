@@ -21,8 +21,6 @@ export class ActionsCellComponent extends CellDataHolder {
   actionsDefinitions: Array<ActionsDefinition>;
   entity: any;
 
-  constructor() {
-  }
 }
 
 export interface ActionsDefinition {

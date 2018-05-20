@@ -12,8 +12,6 @@ export class TextCellComponent extends CellDataHolder {
 
   public value: string;
 
-  constructor() {
-  }
 }
 
 export const TextCellDefinition: CellDef = {
