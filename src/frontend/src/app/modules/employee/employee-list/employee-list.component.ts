@@ -22,8 +22,6 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
   }
 
   ngOnInit() {
-    super.ngOnInit();
-
     this.columns = [
       {columnDef: 'username', header: 'Username', cell: TextCellDefinition},
       {columnDef: 'firstName', header: 'First Name', cell: TextCellDefinition},
@@ -38,6 +36,8 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
     ];
 
     this.headerItems = [this.backItem, this.addItem];
+
+    super.ngOnInit();
   }
 
 }

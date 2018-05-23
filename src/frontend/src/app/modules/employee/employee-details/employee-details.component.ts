@@ -1,4 +1,4 @@
-import {Component, OnInit, Type} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HasHeaderItems} from '../../../shared/mixins/has-header-items';
 import {MixinBase} from '../../../shared/mixins/mixin';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -19,8 +19,6 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
   }
 
   ngOnInit() {
-    super.ngOnInit();
-
     this.entity = this.activatedRoute.snapshot.data.entity;
 
     this.headerItems = [this.backItem];
@@ -73,6 +71,8 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
       })
 
     ];
+
+    super.ngOnInit();
   }
 
 }

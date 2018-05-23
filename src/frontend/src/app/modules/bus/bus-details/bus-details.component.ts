@@ -18,8 +18,6 @@ export class BusDetailsComponent extends HasEntityForm(HasHeaderItems(MixinBase)
   }
 
   ngOnInit() {
-    super.ngOnInit();
-
     this.entity = this.activatedRoute.snapshot.data.entity;
 
     this.headerItems = [this.backItem];
@@ -50,6 +48,8 @@ export class BusDetailsComponent extends HasEntityForm(HasHeaderItems(MixinBase)
       }),
 
     ];
+
+    super.ngOnInit();
   }
 
 }

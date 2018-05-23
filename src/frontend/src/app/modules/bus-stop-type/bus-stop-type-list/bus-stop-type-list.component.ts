@@ -24,8 +24,6 @@ export class BusStopTypeListComponent extends HasHeaderItems(HasEntityList(Mixin
   }
 
   ngOnInit() {
-    super.ngOnInit();
-
     this.columns = [
       {columnDef: 'name', header: 'Name', cell: TextCellDefinition},
       {columnDef: 'description', header: 'Description', cell: TextCellDefinition},
@@ -37,6 +35,8 @@ export class BusStopTypeListComponent extends HasHeaderItems(HasEntityList(Mixin
     ];
 
     this.headerItems = [this.backItem, this.addItem];
+
+    super.ngOnInit();
   }
 
 }
