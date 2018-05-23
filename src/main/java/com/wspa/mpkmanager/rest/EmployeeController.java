@@ -51,7 +51,7 @@ public class EmployeeController {
 	@PatchMapping
 	public ResponseEntity<Employee> update(@RequestBody Employee employee) {
 		if (employee.getPassword() == null) {
-			Employee persisted = this.repository.getOne(employee.getId());
+			Employee persisted = this.repository.findOne(employee.getId());
 			if (persisted != null) {
 				employee.setPassword(persisted.getPassword());
 			}

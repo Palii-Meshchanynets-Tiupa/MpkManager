@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,17 +15,21 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "bus_type_pos__uuid__unique", columnNames = {"uuid"}),
+        @UniqueConstraint(name = "bus_type_pos__both__unique", columnNames = {"bus_id", "bus_type_id"})
+})
 public class BusTypePosition extends AbstractUniqueEntity  {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "bus_id")
+    @JoinColumn(name = "bus_id", foreignKey = @ForeignKey(name = "bus_type_pos__bus__fk"))
     @JsonBackReference
     private Bus bus;
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "bus_type_id")
+    @JoinColumn(name = "bus_type_id", foreignKey = @ForeignKey(name = "bus_type_pos__bus_type__fk"))
     private BusType busType;
 
 }

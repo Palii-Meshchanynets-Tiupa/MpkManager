@@ -14,6 +14,8 @@ import {ActionsCellComponent} from './data-table/cells/actions-cell.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {DynamicFormComponent} from './dynamic-form/dynamic-form-component/dynamic-form.component';
 import {DynamicFormFieldComponent} from './dynamic-form/dynamic-form-component/dynamic-form-field/dynamic-form-field.component';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MAT_DATE_LOCALE} from '@angular/material';
 import '../../rxjs.imports';
 
 @NgModule({
@@ -28,7 +30,7 @@ import '../../rxjs.imports';
     AppMaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-
+    MatMomentDateModule,
     DataTableComponent,
     PageHeaderComponent,
     DynamicFormComponent,
@@ -51,7 +53,8 @@ import '../../rxjs.imports';
   ],
   providers: [
     AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true},
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
   ]
 })
 export class SharedModule { }

@@ -17,11 +17,13 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
 
   @ViewChild(DataTableComponent) dataTable: DataTableComponent;
 
-  constructor(public service: EmployeeService, public router: Router, public route: ActivatedRoute) {
+  constructor(public service: EmployeeService, public router: Router, public activatedRoute: ActivatedRoute) {
     super();
   }
 
   ngOnInit() {
+    super.ngOnInit();
+
     this.columns = [
       {columnDef: 'username', header: 'Username', cell: TextCellDefinition},
       {columnDef: 'firstName', header: 'First Name', cell: TextCellDefinition},
@@ -31,7 +33,7 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
       {
         columnDef: 'actions',
         width: '70px',
-        cell: new ActionsCellDefinition([this.editAction, this.deleteAction])
+        cell: new ActionsCellDefinition(this.editAction, this.deleteAction)
       },
     ];
 

@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -16,20 +14,21 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "line_segment__uuid__unique", columnNames = {"uuid"}))
 public class LineSegment extends AbstractUniqueEntity {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "line_id")
+    @JoinColumn(name = "line_id", foreignKey = @ForeignKey(name = "line_segment__line__fk"))
     @JsonBackReference
     private Line line;
 
     @ManyToOne
-    @JoinColumn(name = "bus_stop_from_id")
+    @JoinColumn(name = "bus_stop_from_id", foreignKey = @ForeignKey(name = "line_segment__bus_stop_from__fk"))
     private BusStop busStopFrom;
 
     @ManyToOne
-    @JoinColumn(name = "bus_stop_to_id")
+    @JoinColumn(name = "bus_stop_to_id", foreignKey = @ForeignKey(name = "line_segment__bus_stop_to__fk"))
     private BusStop busStopTo;
 
 }

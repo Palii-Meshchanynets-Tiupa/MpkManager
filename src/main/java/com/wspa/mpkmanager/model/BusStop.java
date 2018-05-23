@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
@@ -17,6 +15,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "bus_stop__uuid__unique", columnNames = {"uuid"}))
 public class BusStop extends AbstractUniqueEntity {
 
     @NotNull

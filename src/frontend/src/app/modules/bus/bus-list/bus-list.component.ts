@@ -19,11 +19,13 @@ export class BusListComponent extends HasHeaderItems(HasEntityList(MixinBase)) i
 
   constructor(public service: BusService,
               public router: Router,
-              public route: ActivatedRoute) {
+              public activatedRoute: ActivatedRoute) {
     super();
   }
 
   ngOnInit() {
+    super.ngOnInit();
+
     this.columns = [
       {columnDef: 'line', header: 'Line', cell: TextCellDefinition},
       {columnDef: 'vin', header: 'Vin', cell: TextCellDefinition},
@@ -32,7 +34,7 @@ export class BusListComponent extends HasHeaderItems(HasEntityList(MixinBase)) i
       {
         columnDef: 'actions',
         width: '70px',
-        cell: new ActionsCellDefinition([this.editAction, this.deleteAction])
+        cell: new ActionsCellDefinition(this.editAction, this.deleteAction)
       },
     ];
 

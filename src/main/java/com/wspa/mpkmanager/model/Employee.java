@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -19,6 +18,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @ToString(exclude = "password", callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "employee__uuid__unique", columnNames = {"uuid"}))
 public class Employee extends AbstractUniqueEntity {
 
     @NotNull
@@ -32,6 +32,11 @@ public class Employee extends AbstractUniqueEntity {
     @NotNull
     @Size(max = 128)
     private String lastName;
+
+//    @NotNull
+    private LocalDate applicationDate;
+
+    private LocalDate endOfContractDate;
 
     @NotNull
     @Size(min = 11, max = 11)

@@ -35,7 +35,7 @@ export class ActionsCellDefinition implements CellDef {
   handler: (entity: any, column: ColumnDef, obj: any) => any;
   type: Type<CellDataHolder>;
 
-  constructor(actionsDefinitions: ActionsDefinition[]) {
+  constructor(...actionsDefinitions: ActionsDefinition[]) {
     this.type = ActionsCellComponent;
     this.handler = (entity, column, obj) => {
       obj.actionsDefinitions = actionsDefinitions;

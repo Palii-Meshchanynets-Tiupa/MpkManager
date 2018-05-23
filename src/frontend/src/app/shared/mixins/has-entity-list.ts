@@ -4,17 +4,27 @@ import {CrudEntityService} from '../service/crud-entity.service';
 import {Entity} from '../entity';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ActionsDefinition} from '../data-table/cells/actions-cell.component';
+import {assertNotNull} from '../utils';
+import {OnInit} from '@angular/core';
 
-export function HasEntityList<T extends Constructor>(Base: T) {
-  return class extends Base {
+export function HasEntityList<T extends Constructor<OnInit>>(Base: T) {
+  return class extends Base implements OnInit {
     columns: Array<ColumnDef>;
 
     router: Router;
-    route: ActivatedRoute;
+    activatedRoute: ActivatedRoute;
 
     dataTable: DataTableComponent;
 
     service: CrudEntityService<any>;
+
+    ngOnInit(): void {
+      assertNotNull(this.columns, 'columns: ColumnDef[] is not defined');
+      assertNotNull(this.service, 'service: CrudEntityService is not defined');
+      assertNotNull(this.activatedRoute, 'activatedRoute: ActivatedRoute is not defined');
+      assertNotNull(this.router, 'router: Router is not defined');
+      super.ngOnInit();
+    }
 
     deleteEntity(entity: Entity) {
       this.service.delete(entity)
@@ -22,7 +32,7 @@ export function HasEntityList<T extends Constructor>(Base: T) {
     }
 
     goToEdit(entity: Entity) {
-      this.router.navigate([entity.id], {relativeTo: this.route});
+      this.router.navigate([entity.id], {relativeTo: this.activatedRoute});
     }
 
     get editAction(): ActionsDefinition {

@@ -6,14 +6,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "permission__uuid__unique", columnNames = {"uuid"}))
 public class Permission extends AbstractDictionaryEntity {
 
 }

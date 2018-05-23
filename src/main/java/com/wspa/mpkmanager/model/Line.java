@@ -1,15 +1,12 @@
 package com.wspa.mpkmanager.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -19,6 +16,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "line__uuid__unique", columnNames = {"uuid"}))
 public class Line extends AbstractUniqueEntity {
 
     @NotNull

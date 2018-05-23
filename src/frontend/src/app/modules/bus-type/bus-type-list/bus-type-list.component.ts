@@ -19,18 +19,20 @@ export class BusTypeListComponent extends HasHeaderItems(HasEntityList(MixinBase
 
   constructor(public service: BusTypeService,
               public router: Router,
-              public route: ActivatedRoute) {
+              public activatedRoute: ActivatedRoute) {
     super();
   }
 
   ngOnInit() {
+    super.ngOnInit();
+
     this.columns = [
       {columnDef: 'name', header: 'Name', cell: TextCellDefinition},
       {columnDef: 'description', header: 'Description', cell: TextCellDefinition},
       {
         columnDef: 'actions',
         width: '70px',
-        cell: new ActionsCellDefinition([this.editAction, this.deleteAction])
+        cell: new ActionsCellDefinition(this.editAction, this.deleteAction)
       },
     ];
 

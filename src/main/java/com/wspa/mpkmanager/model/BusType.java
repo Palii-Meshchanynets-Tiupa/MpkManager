@@ -6,12 +6,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "bus_type__uuid__unique", columnNames = {"uuid"}))
 public class BusType extends AbstractDictionaryEntity {
 
 }

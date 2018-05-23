@@ -16,11 +16,12 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
+@Table(uniqueConstraints = @UniqueConstraint(name = "bus__uuid__unique", columnNames = {"uuid"}))
 public class Bus extends AbstractUniqueEntity {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "line_id")
+    @JoinColumn(name = "line_id", foreignKey = @ForeignKey(name = "bus__line__fk"))
     private Line line;
 
     @NotNull

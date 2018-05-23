@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {CellDataHolder, CellDef} from '../data-table.component';
+import {CellDataHolder, CellDef, ColumnDef} from '../data-table.component';
 
 @Component({
   selector: 'app-text-cell',
@@ -16,7 +16,7 @@ export class TextCellComponent extends CellDataHolder {
 
 export const TextCellDefinition: CellDef = {
   type: TextCellComponent,
-  handler: (entity, column, obj) => {
+  handler: (entity: any, column: ColumnDef, obj: any): any => {
     obj.value = entity[column.columnDef];
     return obj;
   }
