@@ -13,6 +13,7 @@ export class DynamicFormComponent implements OnInit {
   @Input('fields') fields: FieldBase<any>[] = [];
   @Input('entity') entity: Entity;
   @Output('onSubmit') onSubmit = new EventEmitter<Entity>();
+
   form: FormGroup;
 
   constructor() {  }

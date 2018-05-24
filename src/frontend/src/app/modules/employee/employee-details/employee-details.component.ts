@@ -6,6 +6,7 @@ import {DropdownField} from '../../../shared/dynamic-form/fields/dropdown-field'
 import {TextboxField} from '../../../shared/dynamic-form/fields/textbox-field';
 import {HasEntityForm} from '../../../shared/mixins/has-entity-form';
 import {EmployeeService} from '../employee.service';
+import {DatepickerField} from '../../../shared/dynamic-form/fields/datepicker-field';
 
 @Component({
   selector: 'app-employee-details',
@@ -50,6 +51,19 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
         key: 'pesel',
         label: 'Pesel',
         required: true,
+      }),
+
+      new DatepickerField({
+        entity: this.entity,
+        key: 'applicationDate',
+        label: 'Application Date',
+        required: true,
+      }),
+
+      new DatepickerField({
+        entity: this.entity,
+        key: 'endOfContractDate',
+        label: 'End Of Contract Date',
       }),
 
       new TextboxField({

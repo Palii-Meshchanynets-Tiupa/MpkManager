@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   authenticate(credentials: { username: string, password: string }): Promise<any> {
-    return this.http.post(`${AppConstants.LOGIN_URL}`, `username=${credentials.username}&password=${credentials.password}`,
+    return this.http.post(AppConstants.LOGIN_URL, `username=${credentials.username}&password=${credentials.password}`,
       { headers: this.urlEncodedHeaders })
       .toPromise()
       .then(() => {
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   getPrincipal(): Promise<any> {
-    return this.http.get(`${AppConstants.PRINCIPLE_URL}`, { headers: this.jsonHeaders })
+    return this.http.get(AppConstants.PRINCIPLE_URL, { headers: this.jsonHeaders })
       .toPromise()
       .then(value => {
         if (value != null) {
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post(`${AppConstants.LOGOUT_URL}`, { headers: this.jsonHeaders })
+    return this.http.post(AppConstants.LOGOUT_URL, { headers: this.jsonHeaders })
       .toPromise()
       .then(() => {
         this.principal = null;

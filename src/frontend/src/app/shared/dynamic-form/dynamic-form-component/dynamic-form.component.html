@@ -1,5 +1,7 @@
 <div>
-  <form (ngSubmit)="submit()" [formGroup]="form">
+  <form (ngSubmit)="submit()" [formGroup]="form" autocomplete="off">
+    <!--workaround to disable autocomplete-->
+    <input autocomplete="random!string" name="hidden" type="text" style="display:none;">
 
     <div *ngFor="let field of fields">
       <app-field [field]="field" [form]="form"></app-field>

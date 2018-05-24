@@ -2,8 +2,10 @@
   <ng-container [ngSwitch]="field.controlType" *ngIf="field.show">
 
     <ng-container *ngSwitchCase="'textbox'">
-      <mat-form-field fxFlex >
+      <mat-form-field fxFlex>
+        <!-- autocomplete="new-password" is to disable autocomplete -->
         <input matInput
+               autocomplete="new-password"
                [placeholder]="field.label"
                [formControlName]="field.key"
                [id]="field.key"
@@ -31,7 +33,17 @@
       </mat-form-field>
     </ng-container>
 
-  </ng-container>
+    <ng-container *ngSwitchCase="'datepicker'">
+      <mat-form-field fxFlex>
+        <input matInput
+               [matDatepicker]="picker"
+               [placeholder]="field.label"
+               [formControlName]="field.key"
+               [id]="field.key">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </ng-container>
 
-  <!--<div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>-->
+  </ng-container>
 </div>
