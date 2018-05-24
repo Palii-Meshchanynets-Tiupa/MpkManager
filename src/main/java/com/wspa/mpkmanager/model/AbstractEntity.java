@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 @ToString
@@ -18,5 +19,6 @@ public abstract class AbstractEntity {
 
     @Version
     @Getter
+    @NotNull
     private Long version;
 }
