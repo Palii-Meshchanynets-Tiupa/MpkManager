@@ -53,18 +53,18 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
         required: true,
       }),
 
-      new DatepickerField({
-        entity: this.entity,
-        key: 'applicationDate',
-        label: 'Application Date',
-        required: true,
-      }),
-
-      new DatepickerField({
-        entity: this.entity,
-        key: 'endOfContractDate',
-        label: 'End Of Contract Date',
-      }),
+      // new DatepickerField({
+      //   entity: this.entity,
+      //   key: 'applicationDate',
+      //   label: 'Application Date',
+      //   required: true,
+      // }),
+      //
+      // new DatepickerField({
+      //   entity: this.entity,
+      //   key: 'endOfContractDate',
+      //   label: 'End Of Contract Date',
+      // }),
 
       new TextboxField({
         entity: this.entity,

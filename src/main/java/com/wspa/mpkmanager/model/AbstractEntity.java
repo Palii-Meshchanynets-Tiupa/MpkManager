@@ -3,6 +3,7 @@ package com.wspa.mpkmanager.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,5 +21,6 @@ public abstract class AbstractEntity {
     @Version
     @Getter
     @NotNull
-    private Long version;
+    @ColumnDefault("0")
+    private Long version = 0L;
 }

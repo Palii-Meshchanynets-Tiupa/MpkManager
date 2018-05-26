@@ -33,7 +33,7 @@ public class Employee extends AbstractUniqueEntity {
     @Size(max = 128)
     private String lastName;
 
-    @NotNull
+//    @NotNull
     private LocalDate applicationDate;
 
     private LocalDate endOfContractDate;
