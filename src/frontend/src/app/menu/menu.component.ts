@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   public items = [
-    { name: 'Employees', link: '/emp' },
-    { name: 'Map', link: '/map' },
-    { name: 'Buses', link: '/bus' },
-    { name: 'Bus Types', link: '/bus-type' },
-    { name: 'Stop Types', link: '/bus-stop-type' },
-    // { name: 'Drivers', link: '/driver' },
+    { name: 'EMPLOYEES', link: '/emp' },
+    { name: 'MAP', link: '/map' },
+    { name: 'BUSES', link: '/bus' },
+    { name: 'BUS_TYPES', link: '/bus-type' },
+    { name: 'STOP_TYPES', link: '/bus-stop-type' },
+    // { name: 'DRIVERS', link: '/driver' },
   ];
 
   constructor(protected router: Router) { }

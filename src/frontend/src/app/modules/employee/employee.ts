@@ -1,4 +1,4 @@
-import { Entity } from '../../shared/entity';
+import {Entity} from '../../shared/entity';
 import {Moment} from 'moment';
 
 export class Employee extends Entity {

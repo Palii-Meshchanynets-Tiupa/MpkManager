@@ -1,3 +1,12 @@
 {
-  "Title": "Translation example"
+  "MPK_MANAGER": "MPK Manager",
+  "MENU": "Menu",
+  "EMPLOYEES": "Employees",
+  "MAP": "Map",
+  "BUSES": "Buses",
+  "BUS_TYPES": "Bus Types",
+  "STOP_TYPES": "Stop Types",
+  "DRIVERS": "Drivers",
+  "EN": "EN",
+  "PL": "PL"
 }

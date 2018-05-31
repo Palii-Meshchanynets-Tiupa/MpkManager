@@ -2,15 +2,14 @@
   <mat-card fxFlex="500px">
     <mat-card-content fxLayout="column">
       <div class="menu-header">
-        <span>Menu</span>
-        <h1 translate>Title</h1>
+        <span translate>Menu</span>
       </div>
       <button fxFlex="auto"
               mat-raised-button
               color="accent"
               [routerLink]="item.link"
               *ngFor="let item of items">
-        {{ item.name }}
+        {{ item.name | translate }}
       </button>
     </mat-card-content>
   </mat-card>

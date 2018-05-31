@@ -1,5 +1,5 @@
 <mat-toolbar fxLayoutAlign="space-between center" color="primary">
-  <span routerLink="/" fxFlex="nogrow">MPK Manager</span>
+  <span routerLink="/" fxFlex="nogrow" translate>MPK_MANAGER</span>
 
   <span fxFlex="auto"></span>
 
@@ -7,8 +7,9 @@
     <button *ngIf="isAuthenticated()" mat-raised-button type="button" (click)="logout()">Logout</button>
   </span>
 
-  <button (click)="switchLanguage('en')">en</button>
-  <button (click)="switchLanguage('pl')">pl</button>
+  <span>
+    <button mat-button (click)="switchLanguage('en')">EN</button>
+    <button mat-button (click)="switchLanguage('pl')">PL</button>
+  </span>
 </mat-toolbar>
 <router-outlet></router-outlet>
-
