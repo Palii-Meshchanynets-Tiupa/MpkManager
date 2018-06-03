@@ -22,7 +22,8 @@ import {
   MatProgressSpinnerModule,
   MatTabsModule,
   MatTableModule,
-  MatListModule
+  MatListModule,
+  MatExpansionModule, MatRippleModule, MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -46,6 +47,9 @@ import {
     MatCardModule,
     MatIconModule,
     MatRadioModule,
+    MatExpansionModule,
+    MatRippleModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     MatTabsModule,
     MatTableModule,
@@ -71,6 +75,9 @@ import {
     MatCardModule,
     MatIconModule,
     MatRadioModule,
+    MatExpansionModule,
+    MatRippleModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     MatTabsModule,
     MatTableModule,

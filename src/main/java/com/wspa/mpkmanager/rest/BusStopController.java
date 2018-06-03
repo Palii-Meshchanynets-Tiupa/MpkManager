@@ -4,11 +4,11 @@ import com.wspa.mpkmanager.model.BusStop;
 import com.wspa.mpkmanager.repo.BusStopRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/bus-stop")
@@ -27,6 +27,11 @@ public class BusStopController {
 		return ResponseEntity.ok(repository.findOne(id));
 	}
 
+	@GetMapping("/all")
+	public ResponseEntity<List<BusStop>> getAll() {
+		return ResponseEntity.ok(repository.findAll());
+	}
+
 	@PostMapping
 	public ResponseEntity<BusStop> create(@RequestBody BusStop busStop) {
 		BusStop entity = repository.save(busStop);
@@ -36,7 +41,7 @@ public class BusStopController {
 					.fromCurrentRequest()
 					.path("/{id}")
 					.buildAndExpand(entity.getId()).toUri())
-				.build();
+				.body(entity);
 	}
 
 	@PatchMapping

@@ -23,6 +23,10 @@ public class BusStop extends AbstractUniqueEntity {
 
     private int number;
 
+    private double latitude;
+
+    private double longitude;
+
     @JsonManagedReference
     @OneToMany(mappedBy = "busStop", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BusStopTypePosition> types;

@@ -1,15 +1,117 @@
-<aol-map fxFlex="grow" [width]="'100%'" [height]="'93vh'" [loadTilesWhileAnimating]="true">
+<div #map class="map">
 
-  <aol-interaction-default></aol-interaction-default>
-  <!--<aol-control-defaults></aol-control-defaults>-->
-  <!--<aol-control-fullscreen></aol-control-fullscreen>-->
+  <ng-template #stopTarget></ng-template>
 
-  <aol-view [zoom]="14">
-    <aol-coordinate [x]="22.5677" [y]="51.2461" [srid]="'EPSG:4326'"></aol-coordinate>
-  </aol-view>
+  <div #contextMenu [hidden]="!contextMenuState.shown">
+    <mat-card class="context-menu">
 
-  <aol-layer-tile>
-    <aol-source-osm></aol-source-osm>
-  </aol-layer-tile>
+      <mat-list>
+        <mat-list-item *ngIf="busStopState.additionMod" (click)="createBusStop(contextMenuState.currentPos)">
+          Create bus stop here
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngIf="busStopState.selected != null && busStopState.additionMod" (click)="moveBusStop(contextMenuState.currentPos)">
+          Move bus stop here
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngIf="busStopState.selected != null && busStopState.additionMod" (click)="deleteStop()">
+          Delete selected stop
+        </mat-list-item>
+      </mat-list>
 
-</aol-map>
+    </mat-card>
+  </div>
+
+  <div #busStopControl class="ol-control bus-stop-control" >
+<!--    <mat-card fxLayout="column" fxLayoutAlign="center center">
+      <span fxFlex>Selected bus stop:</span>
+      <button mat-icon-button fxFlex="nogrow">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card>-->
+
+    <mat-card *ngIf="busStopState.formShown && busStopState.additionMod">
+      <form [formGroup]="busStopState.controlGroup" (ngSubmit)="saveBusStop()" autocomplete="off">
+        <!--workaround to disable autocomplete-->
+        <input autocomplete="random!string" name="hidden" type="text" style="display:none;">
+
+        <div fxLayout="row">
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Bus stop name" [formControlName]="'name'">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="40" fxFlexOffset="1">
+            <input matInput type="number" placeholder="Bus stop number" [formControlName]="'number'">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row-reverse">
+          <button fxFlexOffset="1" type="submit" color="primary" mat-raised-button [disabled]="!busStopState.controlGroup.valid">Save</button>
+          <button type="button" color="warn" mat-raised-button (click)="deleteStop()">Delete</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div #mainControl class="ol-control main-control">
+    <mat-card>
+      <mat-tab-group (selectedTabChange)="onTabChanged($event)">
+        <mat-tab label="lines">
+          <ng-template mat-tab-label>
+            <mat-icon>timeline</mat-icon>
+          </ng-template>
+          <div class="tab-content">
+
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Line 1
+                  </mat-panel-title>
+                  <!--<mat-panel-description>-->
+                    <!--Type your name and age-->
+                  <!--</mat-panel-description>-->
+                </mat-expansion-panel-header>
+
+                <div fxLayout="row">
+                  <button mat-raised-button fxFlex color="primary">1</button>
+                  <button mat-raised-button fxFlex color="primary">2</button>
+                </div>
+
+              </mat-expansion-panel>
+
+              <mat-divider></mat-divider>
+
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Line 2
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Line 2</p>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </mat-tab>
+        <mat-tab label="bus-stops" #busTab="matTab">
+          <ng-template mat-tab-label>
+            <mat-icon>directions_bus</mat-icon>
+          </ng-template>
+          <div class="tab-content">
+
+            <mat-list>
+              <ng-container *ngFor="let stop of getStopList()">
+                <mat-list-item (click)="onBusStopItemClick(stop)">
+                  {{ stop.name }} {{ stop.number }}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </ng-container>
+            </mat-list>
+
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</div>
+

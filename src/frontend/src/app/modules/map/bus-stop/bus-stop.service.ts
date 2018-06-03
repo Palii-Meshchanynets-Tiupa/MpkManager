@@ -11,4 +11,10 @@ export class BusStopService extends CrudEntityService<BusStop> {
     super(AppConstants.BUS_STOP_URL, http);
   }
 
+  getAll(): Promise<Array<BusStop>> {
+    return this.http.get<Array<BusStop>>(`${this.url}/all`, {headers: this.jsonHeaders})
+      .toPromise()
+      .then(res => Array.from(res));
+  }
+
 }

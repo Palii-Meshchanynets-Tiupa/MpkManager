@@ -41,7 +41,7 @@ public class BusStopTypeController {
 					.fromCurrentRequest()
 					.path("/{id}")
 					.buildAndExpand(entity.getId()).toUri())
-				.build();
+				.body(entity);
 	}
 
 	@PatchMapping
