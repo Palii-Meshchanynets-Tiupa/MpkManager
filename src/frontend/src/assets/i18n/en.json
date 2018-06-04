@@ -1,17 +1,19 @@
 {
-  "MPK_MANAGER": "MPK Manager",
-  "MENU": "Menu",
-  "EMPLOYEES": "Employees",
-  "MAP": "Map",
-  "BUSES": "Buses",
-  "BUS_TYPES": "Bus Types",
-  "STOP_TYPES": "Stop Types",
-  "DRIVERS": "Drivers",
-  "EN": "EN",
-  "PL": "PL",
-  "USERNAME": "Username",
-  "FIRST_NAME": "First Name",
-  "LAST_NAME": "Last Name",
-  "PESEL": "Pesel",
-  "ENABLED": "Enabled"
+  "main": {
+    "buses": "Buses",
+    "busTypes": "Bus Types",
+    "drivers": "Drivers",
+    "en": "EN",
+    "enabled": "Enabled",
+    "employees": "Employees",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "map": "Map",
+    "menu": "Menu",
+    "mpkManager": "MPK Manager",
+    "pesel": "Pesel",
+    "pl": "PL",
+    "stopTypes": "Stop Types",
+    "username": "Username"
+  }
 }

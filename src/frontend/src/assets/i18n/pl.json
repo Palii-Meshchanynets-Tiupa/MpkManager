@@ -1,17 +1,19 @@
 {
-  "MPK_MANAGER": "MPK Menedżer",
-  "MENU": "Menu",
-  "EMPLOYEES": "Pracownicy",
-  "MAP": "Mapa",
-  "BUSES": "Autobusy",
-  "BUS_TYPES": "Typy autobusów",
-  "STOP_TYPES": "Przystanki",
-  "DRIVERS": "Kierowcy",
-  "EN": "EN",
-  "PL": "PL",
-  "USERNAME": "Użytkownik",
-  "FIRST_NAME": "Imię",
-  "LAST_NAME": "Nazwisko",
-  "PESEL": "Pesel",
-  "ENABLED": "Aktywny"
+  "main": {
+    "buses": "Autobusy",
+    "busTypes": "Typy autobusów",
+    "drivers": "Kierowcy",
+    "en": "EN",
+    "enabled": "Aktywny",
+    "employees": "Pracownicy",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "map": "Mapa",
+    "menu": "Menu",
+    "mpkManager": "MPK Menedżer",
+    "pesel": "Pesel",
+    "pl": "PL",
+    "stopTypes": "Przystanki",
+    "username": "Użytkownik"
+  }
 }

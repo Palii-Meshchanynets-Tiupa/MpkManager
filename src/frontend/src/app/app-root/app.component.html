@@ -1,5 +1,5 @@
 <mat-toolbar fxLayoutAlign="space-between center" color="primary">
-  <span routerLink="/" fxFlex="nogrow" translate>MPK_MANAGER</span>
+  <span routerLink="/" fxFlex="nogrow">{{ "main.mpkManager" | translate }}</span>
 
   <span fxFlex="auto"></span>
 
@@ -8,8 +8,8 @@
   </span>
 
   <span>
-    <button mat-button (click)="switchLanguage('en')">EN</button>
-    <button mat-button (click)="switchLanguage('pl')">PL</button>
+    <button mat-button (click)="switchLanguage('en')">{{ "main.en" | translate }}</button>
+    <button mat-button (click)="switchLanguage('pl')">{{ "main.pl" | translate}}</button>
   </span>
 </mat-toolbar>
 <router-outlet></router-outlet>
