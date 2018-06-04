@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AuthService} from './service/auth.service';
 import {CustomInterceptor} from './service/custom.interceptor';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {AlertDialogComponent} from './dialog/alert-dialog.component';
 import {AppMaterialModule} from '../app.material.module';
 import {DataTableComponent} from './data-table/data-table.component';
@@ -16,7 +16,13 @@ import {DynamicFormComponent} from './dynamic-form/dynamic-form-component/dynami
 import {DynamicFormFieldComponent} from './dynamic-form/dynamic-form-component/dynamic-form-field/dynamic-form-field.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MAT_DATE_LOCALE} from '@angular/material';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import '../../rxjs.imports';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   imports: [
@@ -34,6 +40,7 @@ import '../../rxjs.imports';
     DataTableComponent,
     PageHeaderComponent,
     DynamicFormComponent,
+    TranslateModule
   ],
   declarations: [
     AlertDialogComponent,

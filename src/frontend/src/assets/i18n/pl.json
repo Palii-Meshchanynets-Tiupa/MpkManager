@@ -8,5 +8,10 @@
   "STOP_TYPES": "Przystanki",
   "DRIVERS": "Kierowcy",
   "EN": "EN",
-  "PL": "PL"
+  "PL": "PL",
+  "USERNAME": "Użytkownik",
+  "FIRST_NAME": "Imię",
+  "LAST_NAME": "Nazwisko",
+  "PESEL": "Pesel",
+  "ENABLED": "Aktywny"
 }

@@ -8,5 +8,10 @@
   "STOP_TYPES": "Stop Types",
   "DRIVERS": "Drivers",
   "EN": "EN",
-  "PL": "PL"
+  "PL": "PL",
+  "USERNAME": "Username",
+  "FIRST_NAME": "First Name",
+  "LAST_NAME": "Last Name",
+  "PESEL": "Pesel",
+  "ENABLED": "Enabled"
 }

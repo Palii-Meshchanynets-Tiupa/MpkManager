@@ -23,11 +23,11 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
 
   ngOnInit() {
     this.columns = [
-      {columnDef: 'username', header: 'Username', cell: TextCellDefinition},
-      {columnDef: 'firstName', header: 'First Name', cell: TextCellDefinition},
-      {columnDef: 'lastName', header: 'Last Name', cell: TextCellDefinition},
-      {columnDef: 'pesel', header: 'Pesel', cell: TextCellDefinition},
-      {columnDef: 'enabled', header: 'Enabled', cell: TextCellDefinition},
+      {columnDef: 'username', header: 'USERNAME', cell: TextCellDefinition},
+      {columnDef: 'firstName', header: 'FIRST_NAME', cell: TextCellDefinition},
+      {columnDef: 'lastName', header: 'LAST_NAME', cell: TextCellDefinition},
+      {columnDef: 'pesel', header: 'PESEL', cell: TextCellDefinition},
+      {columnDef: 'enabled', header: 'ENABLED', cell: TextCellDefinition},
       {
         columnDef: 'actions',
         width: '70px',
