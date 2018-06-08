@@ -1,11 +1,11 @@
-import {ColumnDef, DataTableComponent} from '../data-table/data-table.component';
-import {Constructor} from './mixin';
-import {CrudEntityService} from '../service/crud-entity.service';
-import {Entity} from '../entity';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ActionsDefinition} from '../data-table/cells/actions-cell.component';
-import {assertNotNull} from '../utils';
-import {OnInit} from '@angular/core';
+import { ColumnDef, DataTableComponent } from '../data-table/data-table.component';
+import { Constructor } from './mixin';
+import { CrudEntityService } from '../service/crud-entity.service';
+import { Entity } from '../entity';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ActionsDefinition } from '../data-table/cells/actions-cell.component';
+import { assertNotNull } from '../utils';
+import { OnInit } from '@angular/core';
 
 export function HasEntityList<T extends Constructor<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
@@ -19,16 +19,20 @@ export function HasEntityList<T extends Constructor<OnInit>>(Base: T) {
     service: CrudEntityService<any>;
 
     ngOnInit(): void {
-      assertNotNull(this.columns, 'columns: ColumnDef[] is not defined');
       assertNotNull(this.service, 'service: CrudEntityService is not defined');
       assertNotNull(this.activatedRoute, 'activatedRoute: ActivatedRoute is not defined');
       assertNotNull(this.router, 'router: Router is not defined');
+
+      this.columns = this.columns || this.initColumns();
+
+      assertNotNull(this.columns, 'columns: ColumnDef[] is not defined');
       super.ngOnInit();
     }
 
     deleteEntity(entity: Entity) {
       this.service.delete(entity)
-        .then(() => this.dataTable.refresh());
+        .do(() => this.dataTable.refresh())
+        .subscribe();
     }
 
     goToEdit(entity: Entity) {
@@ -42,5 +46,10 @@ export function HasEntityList<T extends Constructor<OnInit>>(Base: T) {
     get deleteAction(): ActionsDefinition {
       return {icon: 'delete', color: 'primary', clickHandler: (entity) => this.deleteEntity(entity)};
     }
+
+    initColumns(): Array<ColumnDef> {
+      throw new Error('initColumns() method should be overridden');
+    }
+
   };
 }

@@ -37,7 +37,6 @@ export class EntityDataSource extends DataSource<Entity> {
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
-      .takeWhile(() => !this.entityStream.closed)
       .subscribe((res: Page<Entity>) => this.entityStream.next(res.content));
   }
 

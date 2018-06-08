@@ -6,14 +6,15 @@ import {HasHeaderItems} from '../../../shared/mixins/has-header-items';
 import {MixinBase} from '../../../shared/mixins/mixin';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ActionsCellDefinition} from '../../../shared/data-table/cells/actions-cell.component';
-import {DataTableComponent} from '../../../shared/data-table/data-table.component';
+import { ColumnDef, DataTableComponent } from '../../../shared/data-table/data-table.component';
+import { HeaderItem } from '../../../shared/page-header/page-header.component';
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBase)) implements OnInit {
+export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBase)) {
 
   @ViewChild(DataTableComponent) dataTable: DataTableComponent;
 
@@ -21,8 +22,12 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
     super();
   }
 
-  ngOnInit() {
-    this.columns = [
+  initHeaderItems(): Array<HeaderItem> {
+    return [this.backItem, this.addItem];
+  }
+
+  initColumns(): Array<ColumnDef> {
+    return [
       {columnDef: 'username', header: 'Username', cell: TextCellDefinition},
       {columnDef: 'firstName', header: 'First Name', cell: TextCellDefinition},
       {columnDef: 'lastName', header: 'Last Name', cell: TextCellDefinition},
@@ -34,10 +39,6 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
         cell: new ActionsCellDefinition(this.editAction, this.deleteAction)
       },
     ];
-
-    this.headerItems = [this.backItem, this.addItem];
-
-    super.ngOnInit();
   }
 
 }

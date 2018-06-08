@@ -1,8 +1,8 @@
-import {HeaderItem} from '../page-header/page-header.component';
-import {Constructor} from './mixin';
-import {ActivatedRoute, Router} from '@angular/router';
-import {assertNotNull} from '../utils';
-import {OnInit} from '@angular/core';
+import { HeaderItem } from '../page-header/page-header.component';
+import { Constructor } from './mixin';
+import { ActivatedRoute, Router } from '@angular/router';
+import { assertNotNull } from '../utils';
+import { OnInit } from '@angular/core';
 
 export function HasHeaderItems<T extends Constructor<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
@@ -12,9 +12,12 @@ export function HasHeaderItems<T extends Constructor<OnInit>>(Base: T) {
     activatedRoute: ActivatedRoute;
 
     ngOnInit(): void {
-      assertNotNull(this.headerItems, 'headerItems: HeaderItem[] is not defined');
       assertNotNull(this.activatedRoute, 'activatedRoute: ActivatedRoute is not defined');
       assertNotNull(this.router, 'router: Router is not defined');
+
+      this.headerItems = this.headerItems || this.initHeaderItems();
+
+      assertNotNull(this.headerItems, 'headerItems: HeaderItem[] is not defined');
       super.ngOnInit();
     }
 
@@ -24,6 +27,10 @@ export function HasHeaderItems<T extends Constructor<OnInit>>(Base: T) {
 
     get addItem(): HeaderItem {
       return {position: 'right', icon: 'add', evenHandler: () => this.router.navigate(['./', ''], {relativeTo: this.activatedRoute})};
+    }
+
+    protected initHeaderItems(): Array<HeaderItem> {
+      throw new Error('initHeaderItems() method should be overridden');
     }
 
   };

@@ -7,24 +7,31 @@ import {TextboxField} from '../../../shared/dynamic-form/fields/textbox-field';
 import {HasEntityForm} from '../../../shared/mixins/has-entity-form';
 import {EmployeeService} from '../employee.service';
 import {DatepickerField} from '../../../shared/dynamic-form/fields/datepicker-field';
+import { HeaderItem } from '../../../shared/page-header/page-header.component';
+import { FieldBase } from '../../../shared/dynamic-form/field-base';
+import { Entity } from '../../../shared/entity';
 
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
   styleUrls: ['./employee-details.component.css']
 })
-export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(MixinBase)) implements OnInit {
+export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(MixinBase)) {
 
   constructor(public service: EmployeeService, public router: Router, public activatedRoute: ActivatedRoute) {
     super();
   }
 
-  ngOnInit() {
-    this.entity = this.activatedRoute.snapshot.data.entity;
+  initHeaderItems(): Array<HeaderItem> {
+    return [this.backItem];
+  }
 
-    this.headerItems = [this.backItem];
+  initEntity(): Entity {
+    return this.activatedRoute.snapshot.data.entity;
+  }
 
-    this.fields = [
+  initFields(): Array<FieldBase<any>> {
+    return [
       new TextboxField({
         entity: this.entity,
         key: 'username',
@@ -85,8 +92,6 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
       })
 
     ];
-
-    super.ngOnInit();
   }
 
 }

@@ -10,34 +10,36 @@ export abstract class CrudEntityService<T extends Entity> {
   protected constructor(protected url: string, protected http: HttpClient) {
   }
 
-  get(id: number): Promise<T> {
+  get(id: number): Observable<T> {
     return this.http.get(`${this.url}/${id}`, {headers: this.jsonHeaders})
-      .toPromise()
-      .then(res => res as T);
+      .take(1)
+      .map(res => res as T);
   }
 
   getPage(pageable: Pageable): Observable<Page<T>> {
     return this.http.get<Page<T>>(this.url, {
       headers: this.jsonHeaders,
       params: new HttpParams({fromObject: {page: `${pageable.page}`, size: `${pageable.size}`}})
-    }).map(res => res as Page<T>);
+    })
+      .take(1)
+      .map(res => res as Page<T>);
   }
 
-  create(entity: T): Promise<T> {
+  create(entity: T): Observable<T> {
     return this.http.post<T>(this.url, entity, {headers: this.jsonHeaders})
-      .toPromise()
-      .then(res => res as T);
+      .take(1)
+      .map(res => res as T);
   }
 
-  update(entity: T): Promise<T> {
+  update(entity: T): Observable<T> {
     return this.http.patch<T>(this.url, entity, {headers: this.jsonHeaders})
-      .toPromise()
-      .then(res => res as T);
+      .take(1)
+      .map(res => res as T);
   }
 
-  delete(entity: T): Promise<{}> {
+  delete(entity: T): Observable<{}> {
     return this.http.delete(`${this.url}/${entity.id}`, {headers: this.jsonHeaders})
-      .toPromise();
+      .take(1);
   }
 
 }

@@ -224,10 +224,11 @@ export class MapComponent implements OnInit {
     busStop.longitude = position[0];
     busStop.latitude = position[1];
     this.busStopService.create(busStop)
-      .then(res => {
+      .do(res => {
         this.busStopState.selected.entity = res;
         this.busStopState.selected.isSaved = true;
-      });
+      })
+      .subscribe();
   }
 
   moveBusStop(coordinate: ol.Coordinate) {
@@ -281,9 +282,8 @@ export class MapComponent implements OnInit {
     const entity = this.busStopState.selected.entity;
     if (entity.id) {
       this.busStopService.delete(entity)
-        .then(() => {
-          this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy();
-        });
+        .do(() => this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy())
+        .subscribe();
     } else {
       this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy();
     }
