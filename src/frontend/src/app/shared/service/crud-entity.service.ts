@@ -25,8 +25,7 @@ export abstract class CrudEntityService<T extends Entity> {
     })
       .take(1)
       .map(res => res as Page<T>)
-      .do(res => res.content = Array.from(res.content).map(ent => this.setPrototype(ent)))
-      .do(res => console.log(res));
+      .do(res => res.content = Array.from(res.content).map(ent => this.setPrototype(ent)));
   }
 
   create(entity: T): Observable<T> {
