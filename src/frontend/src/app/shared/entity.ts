@@ -1,7 +1,11 @@
 
 export class Entity {
-  id: number;
+  id: number | null;
   version: number;
+
+  isNew(): boolean {
+    return this.id == null;
+  }
 }
 
 export class DictionaryEntity extends Entity {

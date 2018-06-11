@@ -3,3 +3,7 @@ export function assertNotNull<T>(object: T, errorText: string): void {
     throw new Error(errorText);
   }
 }
+
+export function instantiate<T>(ctor: new () => T): T {
+  return new ctor();
+}

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeeService extends CrudEntityService<Employee> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.EMPLOYEE_URL, http);
+    super(Employee, AppConstants.EMPLOYEE_URL, http);
   }
 
 }

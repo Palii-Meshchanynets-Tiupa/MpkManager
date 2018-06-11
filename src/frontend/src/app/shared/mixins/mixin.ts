@@ -10,8 +10,6 @@ import {
   SimpleChanges
 } from '@angular/core';
 
-export type Constructor<T = {}> = new(...args: any[]) => T;
-
 /**
  * 1. Always watch names of variables. These mixins highly depend on it
  * 2. Always call super in lifecycle methods (e.g. ngOnInit). Not doing that will result in unexpected bugs

@@ -8,7 +8,7 @@ import {Bus} from './bus';
 export class BusService extends CrudEntityService<Bus> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.BUS_URL, http);
+    super(Bus, AppConstants.BUS_URL, http);
   }
 
 }

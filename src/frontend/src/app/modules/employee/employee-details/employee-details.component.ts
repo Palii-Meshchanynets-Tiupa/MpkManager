@@ -75,7 +75,7 @@ export class EmployeeDetailsComponent extends HasEntityForm(HasHeaderItems(Mixin
 
       new TextboxField({
         entity: this.entity,
-        show: this.entity.id == null,
+        show: this.entity.isNew(),
         key: 'password',
         label: 'Password',
         type: 'password',

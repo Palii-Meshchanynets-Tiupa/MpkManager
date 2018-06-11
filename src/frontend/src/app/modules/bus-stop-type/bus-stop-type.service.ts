@@ -8,7 +8,7 @@ import {BusStopType} from './but-stop-type';
 export class BusStopTypeService extends CrudEntityService<BusStopType> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.BUS_STOP_TYPE_URL, http);
+    super(BusStopType, AppConstants.BUS_STOP_TYPE_URL, http);
   }
 
 }

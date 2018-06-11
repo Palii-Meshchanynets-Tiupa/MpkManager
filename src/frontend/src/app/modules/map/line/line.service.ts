@@ -8,7 +8,7 @@ import {Line} from './line';
 export class LineService extends CrudEntityService<Line> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.LINE_URL, http);
+    super(Line, AppConstants.LINE_URL, http);
   }
 
 }

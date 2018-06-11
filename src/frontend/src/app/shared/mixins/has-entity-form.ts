@@ -1,12 +1,11 @@
-import { Constructor } from './mixin';
 import { Entity } from '../entity';
 import { FieldBase } from '../dynamic-form/field-base';
 import { CrudEntityService } from '../service/crud-entity.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OnInit } from '@angular/core';
+import { OnInit, Type } from '@angular/core';
 import { assertNotNull } from '../utils';
 
-export function HasEntityForm<T extends Constructor<OnInit>>(Base: T) {
+export function HasEntityForm<T extends Type<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
 
     router: Router;
@@ -31,7 +30,7 @@ export function HasEntityForm<T extends Constructor<OnInit>>(Base: T) {
     }
 
     save(entity: Entity) {
-      if (entity.id == null) {
+      if (entity.isNew()) {
         this.service.create(entity)
           .do(res => this.entity = res)
           .do(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))

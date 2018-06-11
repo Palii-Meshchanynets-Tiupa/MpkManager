@@ -1,10 +1,9 @@
 import { HeaderItem } from '../page-header/page-header.component';
-import { Constructor } from './mixin';
 import { ActivatedRoute, Router } from '@angular/router';
 import { assertNotNull } from '../utils';
-import { OnInit } from '@angular/core';
+import { OnInit, Type } from '@angular/core';
 
-export function HasHeaderItems<T extends Constructor<OnInit>>(Base: T) {
+export function HasHeaderItems<T extends Type<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
     headerItems: Array<HeaderItem>;
 

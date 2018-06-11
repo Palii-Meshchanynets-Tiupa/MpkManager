@@ -8,7 +8,7 @@ import {BusType} from './but-type';
 export class BusTypeService extends CrudEntityService<BusType> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.BUS_TYPE_URL, http);
+    super(BusType, AppConstants.BUS_TYPE_URL, http);
   }
 
 }

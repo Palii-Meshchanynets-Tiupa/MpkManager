@@ -1,13 +1,12 @@
 import { ColumnDef, DataTableComponent } from '../data-table/data-table.component';
-import { Constructor } from './mixin';
 import { CrudEntityService } from '../service/crud-entity.service';
 import { Entity } from '../entity';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionsDefinition } from '../data-table/cells/actions-cell.component';
 import { assertNotNull } from '../utils';
-import { OnInit } from '@angular/core';
+import { OnInit, Type } from '@angular/core';
 
-export function HasEntityList<T extends Constructor<OnInit>>(Base: T) {
+export function HasEntityList<T extends Type<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
     columns: Array<ColumnDef>;
 

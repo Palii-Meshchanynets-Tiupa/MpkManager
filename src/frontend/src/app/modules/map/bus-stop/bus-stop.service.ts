@@ -8,7 +8,7 @@ import {BusStop} from './but-stop';
 export class BusStopService extends CrudEntityService<BusStop> {
 
   constructor(http: HttpClient) {
-    super(AppConstants.BUS_STOP_URL, http);
+    super(BusStop, AppConstants.BUS_STOP_URL, http);
   }
 
   getAll(): Promise<Array<BusStop>> {
