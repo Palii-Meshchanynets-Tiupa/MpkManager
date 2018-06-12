@@ -7,10 +7,10 @@ const routes: Routes = [
   {path: '', component: MenuComponent},
   {path: 'login', component: LoginComponent},
   {path: 'emp', loadChildren: './modules/employee/employee.module#EmployeeModule'},
-  {path: 'bus', loadChildren: './modules/bus/bus.module#BusModule'},
-  {path: 'bus-type', loadChildren: './modules/bus-type/bus-type.module#BusTypeModule'},
-  {path: 'bus-stop-type', loadChildren: './modules/bus-stop-type/bus-stop-type.module#BusStopTypeModule'},
-  {path: 'map', loadChildren: './modules/map/map.module#MapModule'},
+  // {path: 'bus', loadChildren: './modules/bus/bus.module#BusModule'},
+  // {path: 'bus-type', loadChildren: './modules/bus-type/bus-type.module#BusTypeModule'},
+  // {path: 'bus-stop-type', loadChildren: './modules/bus-stop-type/bus-stop-type.module#BusStopTypeModule'},
+  // {path: 'map', loadChildren: './modules/map/map.module#MapModule'},
   {path: '**', redirectTo: '/'}
 ];
 
