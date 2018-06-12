@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {HasEntityList} from '../../../shared/mixins/has-entity-list';
-import {TextCellDefinition} from '../../../shared/data-table/cells/text-cell.component';
-import {EmployeeService} from '../employee.service';
-import {HasHeaderItems} from '../../../shared/mixins/has-header-items';
-import {MixinBase} from '../../../shared/mixins/mixin';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ActionsCellDefinition} from '../../../shared/data-table/cells/actions-cell.component';
+import { Component, ViewChild } from '@angular/core';
+import { HasEntityList } from '../../../shared/mixins/has-entity-list';
+import { TextCellDefinition } from '../../../shared/data-table/cells/text-cell.component';
+import { EmployeeService } from '../employee.service';
+import { HasHeaderItems } from '../../../shared/mixins/has-header-items';
+import { MixinBase } from '../../../shared/mixins/mixin';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ActionsCellDefinition } from '../../../shared/data-table/cells/actions-cell.component';
 import { ColumnDef, DataTableComponent } from '../../../shared/data-table/data-table.component';
 import { HeaderItem } from '../../../shared/page-header/page-header.component';
 
@@ -28,11 +28,11 @@ export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBas
 
   initColumns(): Array<ColumnDef> {
     return [
-      {columnDef: 'username', header: 'Username', cell: TextCellDefinition},
-      {columnDef: 'firstName', header: 'First Name', cell: TextCellDefinition},
-      {columnDef: 'lastName', header: 'Last Name', cell: TextCellDefinition},
-      {columnDef: 'pesel', header: 'Pesel', cell: TextCellDefinition},
-      {columnDef: 'enabled', header: 'Enabled', cell: TextCellDefinition},
+      {columnDef: 'username', header: 'employee.username', cell: TextCellDefinition},
+      {columnDef: 'firstName', header: 'employee.firstname', cell: TextCellDefinition},
+      {columnDef: 'lastName', header: 'employee.lastname', cell: TextCellDefinition},
+      {columnDef: 'pesel', header: 'employee.pesel', cell: TextCellDefinition},
+      {columnDef: 'enabled', header: 'employee.enabled', cell: TextCellDefinition},
       {
         columnDef: 'actions',
         width: '70px',

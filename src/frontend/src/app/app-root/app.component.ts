@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../shared/service/auth.service';
 import {HttpClient} from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
 
-  constructor(protected authService: AuthService, protected http: HttpClient) {
+  constructor(protected authService: AuthService, protected http: HttpClient, translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit(): void {

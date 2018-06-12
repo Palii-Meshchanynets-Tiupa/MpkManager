@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "6.0.4",
     "@angular/router": "6.0.4",
     "@ngx-translate/core": "^9.1.1",
+    "@ngx-translate/http-loader": "^3.0.1",
     "@types/openlayers": "4.6.9",
     "core-js": "^2.5.6",
     "font-awesome": "^4.7.0",
@@ -33,6 +34,7 @@
     "moment": "^2.22.2",
     "openlayers": "4.6.5",
     "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
