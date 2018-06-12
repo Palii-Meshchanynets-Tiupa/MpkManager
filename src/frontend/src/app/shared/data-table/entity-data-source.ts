@@ -1,11 +1,9 @@
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {Observable} from 'rxjs/Observable';
+import {Observable, BehaviorSubject, of} from 'rxjs';
 import {Entity} from '../entity';
 import {CrudEntityService} from '../service/crud-entity.service';
 import {Page, Pageable} from '../page';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {catchError, finalize} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
 
 export class EntityDataSource extends DataSource<Entity> {
 

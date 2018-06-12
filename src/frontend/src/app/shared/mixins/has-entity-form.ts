@@ -4,6 +4,7 @@ import { CrudEntityService } from '../service/crud-entity.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnInit, Type } from '@angular/core';
 import { assertNotNull } from '../utils';
+import { tap } from 'rxjs/operators';
 
 export function HasEntityForm<T extends Type<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
@@ -32,13 +33,17 @@ export function HasEntityForm<T extends Type<OnInit>>(Base: T) {
     save(entity: Entity) {
       if (entity.isNew()) {
         this.service.create(entity)
-          .do(res => this.entity = res)
-          .do(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))
+          .pipe(
+            tap(res => this.entity = res),
+            tap(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))
+          )
           .subscribe();
       } else {
         this.service.update(entity)
-          .do(res => this.entity = res)
-          .do(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))
+          .pipe(
+            tap(res => this.entity = res),
+            tap(() => this.router.navigate(['../'], { relativeTo: this.activatedRoute }))
+          )
           .subscribe();
       }
     }

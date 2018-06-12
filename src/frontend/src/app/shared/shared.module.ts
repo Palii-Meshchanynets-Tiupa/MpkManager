@@ -16,7 +16,7 @@ import {DynamicFormComponent} from './dynamic-form/dynamic-form-component/dynami
 import {DynamicFormFieldComponent} from './dynamic-form/dynamic-form-component/dynamic-form-field/dynamic-form-field.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MAT_DATE_LOCALE} from '@angular/material';
-import '../../rxjs.imports';
+import { DateCellComponent } from './data-table/cells/date-cell.component';
 
 @NgModule({
   imports: [
@@ -40,6 +40,7 @@ import '../../rxjs.imports';
     DataTableComponent,
     CellComponent,
     TextCellComponent,
+    DateCellComponent,
     ActionsCellComponent,
     PageHeaderComponent,
     DynamicFormComponent,
@@ -48,6 +49,7 @@ import '../../rxjs.imports';
   entryComponents: [
     AlertDialogComponent,
     TextCellComponent,
+    DateCellComponent,
     ActionsCellComponent,
     CellComponent,
   ],

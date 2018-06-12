@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ActionsDefinition } from '../data-table/cells/actions-cell.component';
 import { assertNotNull } from '../utils';
 import { OnInit, Type } from '@angular/core';
+import { tap } from 'rxjs/operators';
 
 export function HasEntityList<T extends Type<OnInit>>(Base: T) {
   return class extends Base implements OnInit {
@@ -30,7 +31,9 @@ export function HasEntityList<T extends Type<OnInit>>(Base: T) {
 
     deleteEntity(entity: Entity) {
       this.service.delete(entity)
-        .do(() => this.dataTable.refresh())
+        .pipe(
+          tap(() => this.dataTable.refresh())
+        )
         .subscribe();
     }
 

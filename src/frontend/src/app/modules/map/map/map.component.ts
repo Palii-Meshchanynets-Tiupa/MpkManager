@@ -6,6 +6,7 @@ import {MatTab, MatTabChangeEvent} from '@angular/material';
 import {BusStopService} from '../bus-stop/bus-stop.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BusStop} from '../bus-stop/but-stop';
+import { tap } from 'rxjs/operators';
 
 class ContextMenuStateHolder {
   shown = false;
@@ -224,10 +225,12 @@ export class MapComponent implements OnInit {
     busStop.longitude = position[0];
     busStop.latitude = position[1];
     this.busStopService.create(busStop)
-      .do(res => {
-        this.busStopState.selected.entity = res;
-        this.busStopState.selected.isSaved = true;
-      })
+      .pipe(
+        tap(res => {
+          this.busStopState.selected.entity = res;
+          this.busStopState.selected.isSaved = true;
+        })
+      )
       .subscribe();
   }
 
@@ -282,7 +285,9 @@ export class MapComponent implements OnInit {
     const entity = this.busStopState.selected.entity;
     if (entity.id) {
       this.busStopService.delete(entity)
-        .do(() => this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy())
+        .pipe(
+          tap(() => this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy())
+        )
         .subscribe();
     } else {
       this.busStopState.compRefs.find(value => value.instance === this.busStopState.selected).destroy();
