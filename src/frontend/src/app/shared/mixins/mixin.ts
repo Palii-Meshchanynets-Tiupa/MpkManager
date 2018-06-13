@@ -7,7 +7,8 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges
+  SimpleChanges,
+  Type
 } from '@angular/core';
 
 /**
@@ -41,3 +42,6 @@ export class MixinBase implements OnInit, OnDestroy, OnChanges, DoCheck, AfterCo
   ngAfterViewInit(): void {}
   ngDoCheck(): void {}
 }
+
+export type MixinType = new (...args: any[]) => any;
+export type MixinCreationFunction<T extends Type<object>> = (Base: T) => MixinType;

@@ -8,18 +8,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ActionsCellDefinition } from '../../../shared/data-table/cells/actions-cell.component';
 import { ColumnDef, DataTableComponent } from '../../../shared/data-table/data-table.component';
 import { HeaderItem } from '../../../shared/page-header/page-header.component';
+import { DynamicMixins } from '../../../shared/mixins/dynamic-mixins';
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent extends HasHeaderItems(HasEntityList(MixinBase)) {
+export class EmployeeListComponent extends DynamicMixins(HasHeaderItems(HasEntityList(MixinBase))) {
 
   @ViewChild(DataTableComponent) dataTable: DataTableComponent;
 
+  public anotherHeader: any;
+
   constructor(public service: EmployeeService, public router: Router, public activatedRoute: ActivatedRoute) {
     super();
+
+    this.anotherHeader = this.instantiateMixin(HasHeaderItems, {
+      headerItems: [this.backItem]
+    });
   }
 
   initHeaderItems(): Array<HeaderItem> {
