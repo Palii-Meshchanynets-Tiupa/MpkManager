@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ActionsCellDefinition } from '../../../shared/data-table/cells/actions-cell.component';
 import { ColumnDef, DataTableComponent } from '../../../shared/data-table/data-table.component';
 import { HeaderItem } from '../../../shared/page-header/page-header.component';
-import { DynamicMixins } from '../../../shared/mixins/dynamic-mixins';
+import { DynamicMixins, MixinBuilder } from '../../../shared/mixins/dynamic-mixins';
 
 @Component({
   selector: 'app-employee-list',
@@ -20,6 +20,7 @@ export class EmployeeListComponent extends DynamicMixins(HasHeaderItems(HasEntit
   @ViewChild(DataTableComponent) dataTable: DataTableComponent;
 
   public anotherHeader: any;
+  public anotherHeader2: any;
 
   constructor(public service: EmployeeService, public router: Router, public activatedRoute: ActivatedRoute) {
     super();
@@ -27,6 +28,13 @@ export class EmployeeListComponent extends DynamicMixins(HasHeaderItems(HasEntit
     this.anotherHeader = this.instantiateMixin(HasHeaderItems, {
       headerItems: [this.backItem]
     });
+
+    this.anotherHeader2 = MixinBuilder
+      .builder(this, HasHeaderItems)
+      .fields({
+        headerItems: [this.addItem]
+      })
+      .build();
   }
 
   initHeaderItems(): Array<HeaderItem> {

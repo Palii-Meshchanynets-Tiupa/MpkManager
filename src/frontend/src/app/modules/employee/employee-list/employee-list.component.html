@@ -10,6 +10,12 @@
   </app-page-header>
 </mat-card>
 
+<mat-card class="header-card">
+  <app-page-header [items]="anotherHeader2.headerItems">
+    {{ "Another2 Employees" }}
+  </app-page-header>
+</mat-card>
+
 <mat-card>
   <app-data-table #table="data-table"
                   [columns]="columns"

@@ -66,3 +66,28 @@ export function DynamicMixins<T extends Type<MixinBase>>(Base: T) {
     }
   };
 }
+
+export class MixinBuilder {
+  private _fields: {};
+  private _base: Type<MixinBase> = MixinBase;
+
+  private constructor(private mixinObj: any, private mixin: MixinCreationFunction<Type<object>>) {}
+
+  static builder(mixinObj: any, mixin: MixinCreationFunction<Type<object>>): MixinBuilder {
+    return new MixinBuilder(mixinObj, mixin);
+  }
+
+  fields(fields: object): this {
+    this._fields = fields;
+    return this;
+  }
+
+  base(base: Type<MixinBase>): this {
+    this._base = base;
+    return this;
+  }
+
+  build(): object {
+    return this.mixinObj.instantiateMixin(this.mixin, this._fields, this._base);
+  }
+}
