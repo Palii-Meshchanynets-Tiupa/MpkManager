@@ -18,6 +18,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { DateCellComponent } from './data-table/cells/date-cell.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { ObjectTextCellComponent } from './data-table/cells/object-text-cell.component';
 
 @NgModule({
   imports: [
@@ -37,6 +39,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DataTableComponent,
     PageHeaderComponent,
     DynamicFormComponent,
+    PaginatorComponent,
   ],
   declarations: [
     AlertDialogComponent,
@@ -45,14 +48,17 @@ import { TranslateModule } from '@ngx-translate/core';
     TextCellComponent,
     DateCellComponent,
     ActionsCellComponent,
+    ObjectTextCellComponent,
     PageHeaderComponent,
     DynamicFormComponent,
     DynamicFormFieldComponent,
+    PaginatorComponent,
   ],
   entryComponents: [
     AlertDialogComponent,
     TextCellComponent,
     DateCellComponent,
+    ObjectTextCellComponent,
     ActionsCellComponent,
     CellComponent,
   ],

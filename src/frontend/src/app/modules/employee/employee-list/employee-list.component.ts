@@ -9,6 +9,7 @@ import { ActionsCellDefinition } from '../../../shared/data-table/cells/actions-
 import { ColumnDef, DataTableComponent } from '../../../shared/data-table/data-table.component';
 import { HeaderItem } from '../../../shared/page-header/page-header.component';
 import { DynamicMixins, MixinBuilder } from '../../../shared/mixins/dynamic-mixins';
+import { ObjectTextCellDefinition } from '../../../shared/data-table/cells/object-text-cell.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -48,6 +49,7 @@ export class EmployeeListComponent extends DynamicMixins(HasHeaderItems(HasEntit
       {columnDef: 'lastName', header: 'employee.lastname', cell: TextCellDefinition},
       {columnDef: 'pesel', header: 'employee.pesel', cell: TextCellDefinition},
       {columnDef: 'enabled', header: 'employee.enabled', cell: TextCellDefinition},
+      {columnDef: 'permissionGroup.name', header: 'employee.permissiongroup', cell: ObjectTextCellDefinition},
       {
         columnDef: 'actions',
         width: '70px',

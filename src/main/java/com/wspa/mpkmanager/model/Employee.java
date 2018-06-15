@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -48,6 +46,10 @@ public class Employee extends AbstractUniqueEntity {
     private String password;
 
     private boolean enabled = true;
+
+    @ManyToOne
+    @JoinColumn(name = "permission_group_id")
+    private PermissionGroup permissionGroup;
 
 //    @JsonManagedReference
 //    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)

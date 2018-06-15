@@ -6,7 +6,12 @@ import {CellDataHolder, CellDef, ColumnDef} from '../data-table.component';
   template: `
     <div fxLayout="row">
       <ng-container *ngFor="let button of actionsDefinitions">
-        <button fxFlex mat-icon-button [color]="button.color" (click)="button.clickHandler(entity)">
+        <button fxFlex 
+                mat-icon-button 
+                [color]="button.color" 
+                (click)="button.clickHandler(entity)"
+                [matTooltip]="button.tooltip"
+                matTooltipPosition="above">
           <mat-icon>{{ button.icon }}</mat-icon>
         </button>
       </ng-container>
@@ -24,10 +29,10 @@ export class ActionsCellComponent extends CellDataHolder {
 }
 
 export interface ActionsDefinition {
+  tooltip?: string;
   icon: string;
   color?: 'primary' | 'accent' | 'warn';
   clickHandler: (entity: any) => void;
-  entity?: any;
 }
 
 export class ActionsCellDefinition implements CellDef {

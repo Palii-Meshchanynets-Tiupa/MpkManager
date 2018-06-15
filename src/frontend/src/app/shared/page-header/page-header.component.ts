@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 export interface HeaderItem {
+  tooltip?: string;
   position: 'left' | 'right' ;
   icon: string;
-  evenHandler: () => void;
+  clickHandler: () => void;
 }
 
 @Component({

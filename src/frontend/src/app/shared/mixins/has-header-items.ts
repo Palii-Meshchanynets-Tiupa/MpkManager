@@ -21,11 +21,21 @@ export function HasHeaderItems<T extends Type<OnInit>>(Base: T) {
     }
 
     get backItem(): HeaderItem {
-      return {position: 'left', icon: 'arrow_back', evenHandler: () => this.router.navigate(['../'], {relativeTo: this.activatedRoute})};
+      return {
+        tooltip: 'common.item.back',
+        position: 'left',
+        icon: 'arrow_back',
+        clickHandler: () => this.router.navigate(['../'], {relativeTo: this.activatedRoute})
+      };
     }
 
     get addItem(): HeaderItem {
-      return {position: 'right', icon: 'add', evenHandler: () => this.router.navigate(['./', ''], {relativeTo: this.activatedRoute})};
+      return {
+        tooltip: 'common.item.back',
+        position: 'right',
+        icon: 'add',
+        clickHandler: () => this.router.navigate(['./', ''], {relativeTo: this.activatedRoute})
+      };
     }
 
     protected initHeaderItems(): Array<HeaderItem> {

@@ -42,11 +42,11 @@ export function HasEntityList<T extends Type<OnInit>>(Base: T) {
     }
 
     get editAction(): ActionsDefinition {
-      return {icon: 'mode_edit', color: 'accent', clickHandler: (entity) => this.goToEdit(entity)};
+      return {tooltip: 'common.action.edit', icon: 'mode_edit', color: 'accent', clickHandler: (entity) => this.goToEdit(entity)};
     }
 
     get deleteAction(): ActionsDefinition {
-      return {icon: 'delete', color: 'primary', clickHandler: (entity) => this.deleteEntity(entity)};
+      return {tooltip: 'common.action.delete', icon: 'delete', color: 'primary', clickHandler: (entity) => this.deleteEntity(entity)};
     }
 
     initColumns(): Array<ColumnDef> {
