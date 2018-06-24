@@ -1,8 +1,11 @@
-
+.mapBackground {
+  background: #f3efbd;
+  padding-top: 0.1px;
+}
 .map {
   height: 92vh;
   width: 100%;
-  background-color: #b5d0d0;
+  background-color: #f3efbd;
   cursor: grab;
   cursor: -webkit-grab;
   cursor: -moz-grab;

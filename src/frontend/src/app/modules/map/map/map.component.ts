@@ -6,6 +6,10 @@ import {MatTab, MatTabChangeEvent} from '@angular/material';
 import {BusStopService} from '../bus-stop/bus-stop.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BusStop} from '../bus-stop/but-stop';
+import {HasEntityList} from "../../../shared/mixins/has-entity-list";
+import {MixinBase} from "../../../shared/mixins/mixin";
+import {HasHeaderItems} from "../../../shared/mixins/has-header-items";
+import {ActivatedRoute, Router} from "@angular/router";
 
 class ContextMenuStateHolder {
   shown = false;
@@ -29,7 +33,7 @@ class BusStopStateHolder {
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent extends HasHeaderItems(HasEntityList(MixinBase)) implements OnInit {
 
   @ViewChild('map') mapElRef: ElementRef;
   @ViewChild('mainControl') mainControlElRef: ElementRef;
@@ -68,7 +72,10 @@ export class MapComponent implements OnInit {
   // finishPoint: ol.Coordinate;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
-              private busStopService: BusStopService) {
+              private busStopService: BusStopService,
+              public router: Router,
+              public activatedRoute: ActivatedRoute) {
+    super();
   }
 
   ngOnInit(): void {
@@ -85,6 +92,8 @@ export class MapComponent implements OnInit {
       });
 
     this.initMap();
+
+    this.headerItems = [this.backItem];
   }
 
   initMap() {
