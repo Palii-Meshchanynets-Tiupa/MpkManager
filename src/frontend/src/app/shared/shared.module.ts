@@ -24,7 +24,8 @@ import '../../rxjs.imports';
     CommonModule,
     AppMaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     CommonModule,

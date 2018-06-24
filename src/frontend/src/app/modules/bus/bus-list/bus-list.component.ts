@@ -25,10 +25,10 @@ export class BusListComponent extends HasHeaderItems(HasEntityList(MixinBase)) i
 
   ngOnInit() {
     this.columns = [
-      {columnDef: 'line', header: 'Line', cell: TextCellDefinition},
-      {columnDef: 'vin', header: 'Vin', cell: TextCellDefinition},
-      {columnDef: 'number', header: 'Number', cell: TextCellDefinition},
-      {columnDef: 'sideNumber', header: 'Side Number', cell: TextCellDefinition},
+      {columnDef: 'line', header: 'main.line', cell: TextCellDefinition},
+      {columnDef: 'vin', header: 'main.vin', cell: TextCellDefinition},
+      {columnDef: 'number', header: 'main.number', cell: TextCellDefinition},
+      {columnDef: 'sideNumber', header: 'main.sideNumber', cell: TextCellDefinition},
       {
         columnDef: 'actions',
         width: '70px',

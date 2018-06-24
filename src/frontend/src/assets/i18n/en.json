@@ -2,18 +2,25 @@
   "main": {
     "buses": "Buses",
     "busTypes": "Bus Types",
+    "busStopTypes": "Bus Stop Types",
+    "description": "Description",
     "drivers": "Drivers",
     "en": "EN",
     "enabled": "Enabled",
     "employees": "Employees",
     "firstName": "First Name",
     "lastName": "Last Name",
+    "line": "Line",
+    "number": "Number",
     "map": "Map",
     "menu": "Menu",
     "mpkManager": "MPK Manager",
     "pesel": "Pesel",
     "pl": "PL",
+    "sideNumber": "Side Number",
     "stopTypes": "Stop Types",
-    "username": "Username"
+    "titleName": "Name",
+    "username": "Username",
+    "vin": "VIN"
   }
 }

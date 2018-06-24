@@ -2,18 +2,25 @@
   "main": {
     "buses": "Autobusy",
     "busTypes": "Typy autobusów",
+    "busStopTypes": "Typy przystanków autobusow",
+    "description": "Opis",
     "drivers": "Kierowcy",
     "en": "EN",
     "enabled": "Aktywny",
     "employees": "Pracownicy",
     "firstName": "Imię",
     "lastName": "Nazwisko",
+    "line": "Linia",
+    "number": "Numer",
     "map": "Mapa",
     "menu": "Menu",
     "mpkManager": "MPK Menedżer",
     "pesel": "Pesel",
     "pl": "PL",
+    "sideNumber": "Numer boczny",
     "stopTypes": "Przystanki",
-    "username": "Użytkownik"
+    "titleName": "Nazwa",
+    "username": "Użytkownik",
+    "vin": "VIN"
   }
 }
