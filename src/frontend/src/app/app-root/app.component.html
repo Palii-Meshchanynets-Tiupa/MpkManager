@@ -5,11 +5,18 @@
 
   <span>
     <button *ngIf="isAuthenticated()" mat-raised-button type="button" (click)="logout()">Logout</button>
+
+    <mat-select class="languageSelector" [(value)]="currentLanguage" (selectionChange)="switchLanguage($event.value)">
+      <mat-option *ngFor="let language of languages" [value]="language">
+        {{ "main." + language | translate }}
+      </mat-option>
+    </mat-select>
   </span>
 
-  <span>
-    <button mat-button (click)="switchLanguage('en')">{{ "main.en" | translate }}</button>
-    <button mat-button (click)="switchLanguage('pl')">{{ "main.pl" | translate}}</button>
-  </span>
+
+  <!--<span>-->
+  <!--<button mat-button (click)="switchLanguage('en')">{{ "main.en" | translate }}</button>-->
+  <!--<button mat-button (click)="switchLanguage('pl')">{{ "main.pl" | translate}}</button>-->
+  <!--</span>-->
 </mat-toolbar>
 <router-outlet></router-outlet>
